@@ -1,3 +1,5 @@
+![Node.js CI](https://github.com/ShioCMS/shio-js-sdk/workflows/Node.js%20CI/badge.svg)
+
 # Shio CMS JavaScript SDK
 
 
