@@ -1,0 +1,44 @@
+{
+  "name": "shio",
+  "version": "0.3.7",
+  "description": "Shio CMS Javascript SDK",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "mocha --timeout 60000 --exit -r ts-node/register test/**/*.spec.ts",
+    "build": "tsc",
+    "deploy": "npm publish"
+  },
+  "keywords": [
+    "typescript",
+    "github packages",
+    "npm packages"
+  ],
+  "author": "Alexandre Oliveira",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShioCMS/shio-js-sdk.git"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^13.11.0",
+    "chai": "^4.2.0",
+    "mocha": "^7.1.1",
+    "tslint": "^6.1.1",
+    "ts-node": "^8.8.1",
+    "typescript": "~3.8.3"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "graphql-request": "^1.8.2",
+    "promise": "^8.1.0"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@ShioCMS"
+  }
+}
