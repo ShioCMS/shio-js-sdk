@@ -1,20 +1,12 @@
-import { ShRegion } from './shio/ShRegion';
-import { ShContent } from './shio/ShContent';
-import { ShObject } from './shio/ShObject';
-import { ShPageLayout } from './shio/ShPageLayout';
+import { ShRegion as Region } from './shio/ShRegion';
+import { ShContent as Content} from './shio/ShContent';
+import { ShObject as Object } from './shio/ShObject';
+import { ShPageLayout as PageLayout } from './shio/ShPageLayout';
 
-export const shContent = () => {
-    let shContent = new ShContent("region").getContent();
-    return shContent;
-}
+export const shContent = new Content().getContent();
 
-export const shObject = () => {
-    return ShObject;
-}
-export const shRegion = () => {
-    return ShRegion;
-}
+export const ShObject = Object;
 
-export const shPageLayout = () => {
-    return ShPageLayout;
-}
+export const ShRegion = Region;
+
+export const ShPageLayout = PageLayout;

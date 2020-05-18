@@ -1,13 +1,14 @@
 {
   "name": "shio",
-  "version": "0.3.7",
+  "version": "0.3.7b",
   "description": "Shio CMS Javascript SDK",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "mocha --timeout 60000 --exit -r ts-node/register test/**/*.spec.ts",
     "build": "tsc",
-    "deploy": "npm publish"
+    "undeploy": "npm unpublish --force shio@0.3.7",
+    "deploy": "npm publish --force"
   },
   "keywords": [
     "typescript",
@@ -33,7 +34,8 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
     "graphql-request": "^1.8.2",
-    "promise": "^8.1.0"
+    "promise": "^8.1.0",
+    "require-from-string": "^2.0.2"
   },
   "engines": {
     "node": ">=8"

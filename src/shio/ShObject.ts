@@ -1,6 +1,9 @@
 'use strict'
 
 export class ShObject {
+    public constructor() {
+    
+    }
 
     public navigation(siteName: String, isHome: boolean) {
         return [

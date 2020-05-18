@@ -41,6 +41,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var fs_1 = __importDefault(require("fs"));
 var cheerio_1 = __importDefault(require("cheerio"));
+var require_from_string_1 = __importDefault(require("require-from-string"));
 var ShRegion_1 = require("./ShRegion");
 var ShPageLayout = /** @class */ (function () {
     function ShPageLayout(_pageLayoutName) {
@@ -69,29 +70,36 @@ var ShPageLayout = /** @class */ (function () {
                                             html = _a.sent();
                                             shRegion.html(html);
                                             promises.push(html);
+                                            console.log("AA");
                                             return [2 /*return*/];
                                     }
                                 });
                             });
                         };
                         $('[sh-region]').each(cheerioEach);
+                        console.log("BB");
                         return [4 /*yield*/, Promise.all(promises)];
                     case 1:
                         _a.sent();
+                        console.log("CC");
                         return [2 /*return*/, $.html()];
                 }
             });
         });
     };
+    ShPageLayout.prototype.test = function (value) {
+        return value;
+    };
     ShPageLayout.prototype.render = function (shContent, shObject) {
         return __awaiter(this, void 0, void 0, function () {
-            var html, pageLayoutJS;
+            var html, js, pageLayoutJS;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.readPageLayout('./src/template/pageLayout/' + this.pageLayoutName + '/' + this.pageLayoutName + '.hbs', shContent, shObject)];
                     case 1:
                         html = _a.sent();
-                        pageLayoutJS = require('../template/pageLayout/' + this.pageLayoutName + '/' + this.pageLayoutName);
+                        js = fs_1.default.readFileSync('./src/template/pageLayout/' + this.pageLayoutName + '/' + this.pageLayoutName + '.js', 'utf-8').toString();
+                        pageLayoutJS = require_from_string_1.default(js);
                         return [2 /*return*/, pageLayoutJS.render(shContent, shObject, html)];
                 }
             });

@@ -1,10 +1,8 @@
 export declare class ShContent {
-    regionName: String;
-    constructor(_regionName: any);
+    constructor();
     getContent(): {
         system: {
             id: string;
         };
-        test: string;
     };
 }

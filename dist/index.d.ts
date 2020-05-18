@@ -1,12 +1,11 @@
-import { ShRegion } from './shio/ShRegion';
-import { ShObject } from './shio/ShObject';
-import { ShPageLayout } from './shio/ShPageLayout';
-export declare const shContent: () => {
+import { ShRegion as Region } from './shio/ShRegion';
+import { ShObject as Object } from './shio/ShObject';
+import { ShPageLayout as PageLayout } from './shio/ShPageLayout';
+export declare const shContent: {
     system: {
         id: string;
     };
-    test: string;
 };
-export declare const shObject: () => typeof ShObject;
-export declare const shRegion: () => typeof ShRegion;
-export declare const shPageLayout: () => typeof ShPageLayout;
+export declare const ShObject: typeof Object;
+export declare const ShRegion: typeof Region;
+export declare const ShPageLayout: typeof PageLayout;

@@ -40,16 +40,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var fs_1 = __importDefault(require("fs"));
+var require_from_string_1 = __importDefault(require("require-from-string"));
 var ShRegion = /** @class */ (function () {
     function ShRegion(_regionName) {
         this.regionName = _regionName.toLowerCase();
     }
     ShRegion.prototype.render = function (shContent, shObject) {
         return __awaiter(this, void 0, void 0, function () {
-            var html, regionJS;
+            var html, js, regionJS;
             return __generator(this, function (_a) {
                 html = fs_1.default.readFileSync('./src/template/region/' + this.regionName + '/' + this.regionName + '.hbs', 'utf-8').toString();
-                regionJS = require('../template/region/' + this.regionName + '/' + this.regionName);
+                js = fs_1.default.readFileSync('./src/template/region/' + this.regionName + '/' + this.regionName + '.js', 'utf-8').toString();
+                regionJS = require_from_string_1.default(js);
                 return [2 /*return*/, regionJS.render(shContent, shObject, html)];
             });
         });

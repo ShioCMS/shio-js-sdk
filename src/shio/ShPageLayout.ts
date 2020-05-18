@@ -1,12 +1,13 @@
 'use strict'
 import fs from 'fs';
 import cheerio from 'cheerio';
+import requireFromString from 'require-from-string'
 import { ShRegion } from './ShRegion';
 
 export class ShPageLayout {
     pageLayoutName: String;
 
-    constructor(_pageLayoutName) {
+    public constructor(_pageLayoutName) {
         this.pageLayoutName = _pageLayoutName.toLowerCase();
     }
 
@@ -22,17 +23,24 @@ export class ShPageLayout {
             var html = await region.render(shContent, shObject);
             shRegion.html(html);
             promises.push(html);
-        }
+            console.log("AA");
+        }        
         $('[sh-region]').each(cheerioEach);
-
+        console.log("BB");
         await Promise.all(promises);
+        console.log("CC");
         return $.html();
 
     }
-
+    
+    public test(value) {
+        return value;
+    }
+    
     public async render(shContent, shObject) {
         var html = await this.readPageLayout('./src/template/pageLayout/' + this.pageLayoutName + '/' + this.pageLayoutName + '.hbs', shContent, shObject);
-        var pageLayoutJS = require('../template/pageLayout/' + this.pageLayoutName + '/' + this.pageLayoutName);
+        var js = fs.readFileSync('./src/template/pageLayout/' + this.pageLayoutName + '/' + this.pageLayoutName + '.js', 'utf-8').toString();        
+        var pageLayoutJS = requireFromString(js);
         return pageLayoutJS.render(shContent, shObject, html);
     };
 }
