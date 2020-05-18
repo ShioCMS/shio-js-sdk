@@ -1,6 +1,6 @@
 {
-  "name": "shio",
-  "version": "0.3.7b",
+  "name": "@shiocms/shio",
+  "version": "0.3.7c",
   "description": "Shio CMS Javascript SDK",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
