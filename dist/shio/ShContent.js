@@ -1,11 +1,17 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
+var graphql_request_1 = require("graphql-request");
+var debug = require('debug')('server');
 var ShContent = /** @class */ (function () {
     function ShContent() {
-        var query = "{\n            articles(where: {_furl: \"new-feature\"}) {\n              id\n              _furl\n              text\n              \n            }\n          }\n          ";
-        //    request('https://shio.viglet.net/graphql', query).then(data =>
-        //       console.log(data.articles[0].id)
-        //    )
+        var objectQuery = "{\n            objectFromURL(url: \"/sites/test/default/en-us/sample-blog-post\") {   \n              id\n              type\n            }\n          }          \n          ";
+        graphql_request_1.request('http://localhost:2710/graphql', objectQuery).then(function (data) {
+            return debug(data);
+        });
+        var postQuery = "{\n            article(where: {id: \"7ba3966f-a13d-4268-9a38-364bdd7be9db\"}) {\n              id\n              description\n              text\n            }\n          }\n          ";
+        graphql_request_1.request('http://localhost:2710/graphql', postQuery).then(function (data) {
+            debug(data);
+        });
     }
     ShContent.prototype.getContent = function () {
         return {

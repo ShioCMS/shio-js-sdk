@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "mocha --timeout 60000 --exit -r ts-node/register test/**/*.spec.ts",
+    "test": "mocha --timeout 60000 -r ts-node/register test/**/*.spec.ts",
     "build": "tsc",
     "undeploy": "npm unpublish --force shio@0.3.7",
     "deploy": "npm publish --access public"
@@ -34,6 +34,7 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
     "graphql-request": "^1.8.2",
+    "mocha-logger": "^1.0.6",
     "promise": "^8.1.0",
     "require-from-string": "^2.0.2"
   },
