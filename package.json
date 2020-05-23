@@ -1,5 +1,5 @@
 {
-  "name": "@shiocms/shio",
+  "name": "@viglet/shio",
   "version": "0.3.7c",
   "description": "Shio CMS Javascript SDK",
   "main": "dist/index.js",
@@ -8,7 +8,7 @@
     "test": "mocha --timeout 60000 --exit -r ts-node/register test/**/*.spec.ts",
     "build": "tsc",
     "undeploy": "npm unpublish --force shio@0.3.7",
-    "deploy": "npm publish --force"
+    "deploy": "npm publish --access public"
   },
   "keywords": [
     "typescript",
@@ -41,6 +41,6 @@
     "node": ">=8"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@ShioCMS"
+    "registry": "https://registry.npmjs.org/@viglet"
   }
 }
