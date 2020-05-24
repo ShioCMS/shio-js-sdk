@@ -17,7 +17,7 @@ npm run build
 ## Test pacakge
 
 ```sh
-npm test
+DEBUG=shio-sdk:* npm test
 ```
 
 ## Deploy package

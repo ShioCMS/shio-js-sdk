@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
+    "debug": "^4.1.1",
     "graphql-request": "^1.8.2",
     "mocha-logger": "^1.0.6",
     "promise": "^8.1.0",
