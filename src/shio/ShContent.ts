@@ -1,48 +1,27 @@
 'use strict'
 
-import { request } from 'graphql-request'
+import { request } from 'graphql-request';
+import { ShServer } from './ShServer';
 
 export class ShContent {
-    object
-    objectData
-    public constructor() {
-    }
+  private objectData: any;
+  private shServer: ShServer;
 
-    public async getContent() {
-        const objectQuery = `{
-            objectFromURL(url: "/sites/test/default/en-us/sample-blog-post") {   
-              id
-              type
+  public constructor(shServer: ShServer) {
+    this.shServer = shServer;
+  }
+
+  public async getContent(url: string): Promise<any> {
+    const objectQuery = `{
+            objectFromURL(url: "${url}") {   
+              content
             }
-          }          
-          `
+          }`;
 
-        await request('http://localhost:2710/graphql', objectQuery).then(objectData => {
-            console.log(objectData.objectFromURL.id);
-            console.log(objectData.objectFromURL.type);
-            this.objectData = objectData;
+    await request(this.shServer.getUrl(), objectQuery).then(objectData =>
+      this.objectData = objectData
+    )
 
-
-        }
-        )
-
-        var postQuery = `{
-            #postType (where: {id: "#id"}) {
-              id
-              description
-              text
-            }
-          }
-          `.replace("#postType", this.objectData.objectFromURL.type).replace("#id", this.objectData.objectFromURL.id)
-        await request('http://localhost:2710/graphql', postQuery).then(postData => {
-            console.log(postData);
-            this.object = postData.article;
-        }
-        )
-        return {
-            system: {
-                "id": this.object.id,
-            }
-        }
-    }
+    return this.objectData.objectFromURL.content;
+  }
 }

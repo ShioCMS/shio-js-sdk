@@ -5,7 +5,7 @@ export class ShObject {
     
     }
 
-    public navigation(siteName: String, isHome: boolean) {
+    public navigation(siteName: string, isHome: boolean): Array<any> {
         return [
             {
                 "id": "123",
@@ -18,7 +18,7 @@ export class ShObject {
         ];
     };
 
-    public generateFolderLink = function (folderId: String): String {
+    public generateFolderLink = function (folderId: string): string {
         return "link123";
     };
 }
