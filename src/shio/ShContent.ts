@@ -45,7 +45,8 @@ export class ShContent {
       this.object = postData.article;
     })
 
-    let contentObj = new ShContentObj();
+    
+    let contentObj = ShContentObj.create({TITLE: "Ale"});
     contentObj.site = new ShContentSite();
     contentObj.site.system = new ShContentSiteSystem();
     contentObj.system = new ShContentSystem();
