@@ -14,7 +14,7 @@ yarn
 npm run build
 ```
 
-## Test pacakge
+## Test package
 
 ```sh
 DEBUG=shio-sdk:* npm test
