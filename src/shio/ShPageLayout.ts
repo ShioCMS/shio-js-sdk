@@ -28,7 +28,7 @@ export class ShPageLayout {
         var cheerioEach = async function () {
             var shRegion = $(this);
             var regionName = shRegion.attr("sh-region");
-            var region = new ShRegion(regionName);
+            var region = new ShRegion(this.shServer, regionName);
             var html = await region.render(shContent, shObject);
             shRegion.html(html);
             promises.push(html);
@@ -58,7 +58,7 @@ export class ShPageLayout {
     public async render(shContent: any, shObject: any): Promise<string> {
 
         let pageLayoutName = await this.getPageLayoutName();
-        var commonPath = `./src/template/viglet/pageLayout/${pageLayoutName}/${pageLayoutName}`;
+        var commonPath = `${this.shServer.getTemplatePath()}/pageLayout/${pageLayoutName}/${pageLayoutName}`;
         var html = await this.readPageLayout(`${commonPath}.hbs`, shContent, shObject);
         var js = fs.readFileSync(`${commonPath}.js`, 'utf-8').toString();
         var pageLayoutJS = requireFromString(js);

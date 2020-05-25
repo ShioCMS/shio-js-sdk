@@ -7,7 +7,9 @@ import Debug from 'debug';
 const debug = Debug("shio-sdk:ShServer");
 
 export class ShServer {
-    private endpoint: string
+    private endpoint: string;
+
+    private templatePath: string = "./src/template/viglet";
 
     public constructor(endpoint: string) {
         this.endpoint = endpoint;
@@ -43,5 +45,19 @@ export class ShServer {
      */
     public getEndpoint() {
         return this.endpoint;
+    }
+
+    /**
+     * setTemplatePath
+     */
+    public setTemplatePath(templatePath: string) {
+        this.templatePath = templatePath;
+    }
+
+    /**
+     * getTemplatePath
+     */
+    public getTemplatePath() {
+        return this.templatePath;
     }
 }
