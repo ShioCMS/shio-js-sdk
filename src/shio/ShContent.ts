@@ -18,7 +18,7 @@ export class ShContent {
             }
           }`;
 
-    await request(this.shServer.getUrl(), objectQuery).then(objectData =>
+    await request(this.shServer.getEndpoint(), objectQuery).then(objectData =>
       this.objectData = objectData
     )
 

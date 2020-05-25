@@ -47,7 +47,7 @@ export class ShPageLayout {
             }
           }`;
 
-        await request(this.shServer.getUrl(), objectQuery).then(objectData => {
+        await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
             debug(objectData);
             pageLayoutName = objectData.objectFromURL.pageLayout;
         }
