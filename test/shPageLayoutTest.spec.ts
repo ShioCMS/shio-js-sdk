@@ -1,8 +1,8 @@
 'use strict'
 
-import { ShPageLayout, ShServer } from './../src'
+import { ShPageLayout, ShServer } from '../src'
 import { expect } from 'chai'
-import { ShConstTest } from './shConstTest';
+import { ShConstTest } from './ShConstTest';
 
 const shServer = new ShServer(ShConstTest.endpoint);
 

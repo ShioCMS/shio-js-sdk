@@ -1,8 +1,8 @@
 'use strict'
 
-import { ShRegion, ShServer } from './../src'
+import { ShRegion, ShServer } from '../src'
 import { expect } from 'chai'
-import { ShConstTest } from './shConstTest';
+import { ShConstTest } from './ShConstTest';
 
 const shServer = new ShServer(ShConstTest.endpoint);
 describe('ShRegion', () => {

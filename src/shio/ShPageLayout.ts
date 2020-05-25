@@ -18,25 +18,20 @@ export class ShPageLayout {
         this.url = url;
     }
 
-
-
     public async readPageLayout(filePath: string, shContent: any, shObject: any) {
         var data = fs.readFileSync(filePath, 'utf-8');
         const $ = cheerio.load(data.toString());
-
-        var promises = [];
-        var cheerioEach = async function () {
+        let shServer: ShServer = this.shServer;
+        await Promise.all($('[sh-region]').map(async function () {
             var shRegion = $(this);
             var regionName = shRegion.attr("sh-region");
-            var region = new ShRegion(this.shServer, regionName);
+            var region = new ShRegion(shServer, regionName);
             var html = await region.render(shContent, shObject);
             shRegion.html(html);
-            promises.push(html);
-        }
-        $('[sh-region]').each(cheerioEach);
-        await Promise.all(promises);
-        return $.html();
+            return html
+        }).get());
 
+        return $.html();
     }
 
     public async getPageLayoutName(): Promise<string> {
@@ -56,13 +51,12 @@ export class ShPageLayout {
     }
 
     public async render(shContent: any, shObject: any): Promise<string> {
-
-        let pageLayoutName = await this.getPageLayoutName();
-        var commonPath = `${this.shServer.getTemplatePath()}/pageLayout/${pageLayoutName}/${pageLayoutName}`;
-        var html = await this.readPageLayout(`${commonPath}.hbs`, shContent, shObject);
-        var js = fs.readFileSync(`${commonPath}.js`, 'utf-8').toString();
-        var pageLayoutJS = requireFromString(js);
-        return pageLayoutJS.render(shContent, shObject, html);
+        let pageLayoutName: string = await this.getPageLayoutName();
+        let commonPath: string = `${this.shServer.getTemplatePath()}/pageLayout/${pageLayoutName}/${pageLayoutName}`;
+        let html: string = await this.readPageLayout(`${commonPath}.hbs`, shContent, shObject);
+        let js: string = fs.readFileSync(`${commonPath}.js`, 'utf-8');
+        let pageLayoutJS: any = requireFromString(js);
+        return await pageLayoutJS.render(shContent, shObject, html);
     };
 
 }

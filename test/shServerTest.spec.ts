@@ -3,9 +3,9 @@
 import { ShServer } from '../src'
 import { expect } from 'chai'
 import Debug from 'debug';
-import { ShConstTest } from './shConstTest';
+import { ShConstTest } from './ShConstTest';
 
-const debug = Debug("shio-sdk:test-shServer");
+const debug = Debug("shio-sdk:test-ShServer");
 
 const shServer = new ShServer(ShConstTest.endpoint)
 

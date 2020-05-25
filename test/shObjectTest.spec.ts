@@ -1,6 +1,6 @@
 'use strict'
 
-import { ShObject } from './../src'
+import { ShObject } from '../src'
 import { expect } from 'chai'
 
 describe('ShObject generateFolderLink', () => {
