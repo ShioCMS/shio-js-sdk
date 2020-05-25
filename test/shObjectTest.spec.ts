@@ -1,3 +1,5 @@
+'use strict'
+
 import { ShObject } from './../src'
 import { expect } from 'chai'
 

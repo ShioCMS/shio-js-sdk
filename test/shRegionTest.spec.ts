@@ -1,3 +1,5 @@
+'use strict'
+
 import { ShRegion } from './../src'
 import { expect } from 'chai'
 

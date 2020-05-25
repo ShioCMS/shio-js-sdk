@@ -13,7 +13,7 @@ export class ShRegion {
         return this.regionName;
     }
     public async render(shContent: any, shObject: any): Promise<string> {
-        var commonPath = `./src/template/region/${this.regionName}/${this.regionName}`;
+        var commonPath = `./src/template/viglet/region/${this.regionName}/${this.regionName}`;
         var html = fs.readFileSync(`${commonPath}.hbs`, 'utf-8').toString();
         var js = fs.readFileSync(`${commonPath}.js`, 'utf-8').toString();
         var regionJS = requireFromString(js);
