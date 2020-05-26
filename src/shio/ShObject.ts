@@ -1,8 +1,14 @@
 'use strict'
+import { ShServer } from './ShServer';
+import { request } from 'graphql-request';
+import Debug from 'debug';
 
+const debug = Debug("shio-sdk:ShObject");
 export class ShObject {
-    public constructor() {
+    private shServer: ShServer;
 
+    public constructor(shServer: ShServer) {
+        this.shServer = shServer;
     }
 
     public formComponent(shPostTypeName: string, shObjectId: string): string {
@@ -25,17 +31,20 @@ export class ShObject {
 	 *            true or false to show the Home folder.
 	 * @public
 	 */
-    public navigation(siteName: string, home: boolean): Array<any> {
-        return [
-            {
-                "id": "123",
-                "name": "Folder1",
-            },
-            {
-                "id": "456",
-                "name": "Folder2",
+    public async navigation(siteName: string, home: boolean): Promise<any> {
+        let folders: any;
+        const objectQuery = `{
+            shNavigation(siteName: "${siteName}", isHome: ${home}) {   
+              folders
             }
-        ];
+          }`;
+
+        await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
+            debug(objectData);
+            folders = objectData.shNavigation.folders;
+        }
+        )
+        return folders;
     }
 
 	/**
@@ -46,8 +55,20 @@ export class ShObject {
 	 *            true or false to show the Home folder.
 	 * @public
 	 */
-    public navigationFolder(folderId: string, home: boolean): string {
-        return null;
+    public async navigationFolder(folderId: string, home: boolean): Promise<any> {
+        let folders: any;
+        const objectQuery = `{
+            shNavigation(folderId: "${folderId}", isHome: "${home}") {   
+              folders
+            }
+          }`;
+
+        await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
+            debug(objectData);
+            folders = objectData.shNavigation.folders;
+        }
+        )
+        return folders;
     }
 
 	/**

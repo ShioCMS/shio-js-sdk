@@ -31,7 +31,7 @@ export class ShServer {
 
         if (context === "sites") {
             var pageLayout = new ShPageLayout(this, url);
-            var shObject = new ShObject();
+            var shObject = new ShObject(this);
             let shContent = new ShContent(this);
             let content = await shContent.getContent(url);
             return await pageLayout.render(content, shObject);
