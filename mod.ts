@@ -1,1 +1,6 @@
-export { ShContent, ShObject, ShPageLayout, ShRegion, ShServer } from "./src/index.ts";
+import { bold } from "./deps.ts";
+
+/** Returns `Hello World` in bold */
+export function getHelloWorld(): string {
+  return bold("Hello World");
+}
