@@ -1,5 +1,14 @@
-- name: Setup Deno environment
-  uses: denolib/setup-deno@v1.3.0
-  with:
-    # Version range or exact version of a Deno version to use.
-    deno-version: # optional, default is v0.x
+jobs:
+  build:
+    runs-on: ubuntu-16.04
+    strategy:
+      matrix:
+        deno: [1.0.0, 0.42.0]
+    name: Deno ${{ matrix.deno }} sample
+    steps:
+      - uses: actions/checkout@master
+      - name: Setup Deno
+        uses: denolib/setup-deno@master
+        with:
+          deno-version: ${{ matrix.deno }}
+      - run: deno run https://deno.land/std/examples/welcome.ts
