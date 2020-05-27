@@ -37,14 +37,14 @@ export class ShPageLayout {
     public async getPageLayoutName(): Promise<string> {
         let pageLayoutName: string;
         const objectQuery = `{
-            objectFromURL(url: "${this.url}") {   
+            shObjectFromURL(url: "${this.url}") {   
               pageLayout
             }
           }`;
 
         await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
             debug(objectData);
-            pageLayoutName = objectData.objectFromURL.pageLayout;
+            pageLayoutName = objectData.shObjectFromURL.pageLayout;
         }
         )
         return pageLayoutName;

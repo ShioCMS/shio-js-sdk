@@ -42,8 +42,8 @@ export class ShObject {
 		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
 			debug(objectData);
 			folders = objectData.shNavigation.folders;
-		}
-		)
+		});
+
 		return folders;
 	}
 
@@ -66,8 +66,8 @@ export class ShObject {
 		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
 			debug(objectData);
 			folders = objectData.shNavigation.folders;
-		}
-		)
+		});
+
 		return folders;
 	}
 
@@ -80,8 +80,22 @@ export class ShObject {
 	 * @public
 	 */
 
-	public query(folderId: string, postTypeName: boolean): string {
-		return null;
+	public async query(folderId: string, postTypeName: string): Promise<any> {
+		let posts: Array<any> = [];
+		const objectQuery = `{
+            shQuery(postTypeName:"${postTypeName}", folderId:"${folderId}") {
+				post
+			}
+          }`;
+
+		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
+			debug(objectData);
+			objectData.shQuery.forEach((item: any) => {
+				posts.push(item.post);
+			});
+		});
+
+		return posts;
 	}
 
 	/**
@@ -90,8 +104,24 @@ export class ShObject {
 	 *            Post Type Name.         
 	 * @public
 	 */
-	public queryByPostType(postTypeName: string): string {
-		return null;
+	public async queryByPostType(postTypeName: string): Promise<any> {
+		let posts: Array<any> = [];
+		const objectQuery = `{
+            shQuery(postTypeName:"${postTypeName}") {
+				post
+			}
+          }`;
+
+		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
+			
+			objectData.shQuery.forEach((item: any) => {
+				posts.push(item.post);
+			});
+		});
+
+		debug(posts);
+		
+		return posts;
 	}
 
 	/**
@@ -104,8 +134,22 @@ export class ShObject {
 	 *            Array Value.            
 	 * @public
 	 */
-	public queryByPostTypeIn(postTypeName: string, postAttrName: string, arrayValue: string): string {
-		return null;
+	public async queryByPostTypeIn(postTypeName: string, postAttrName: string, arrayValue: Array<string>): Promise<any> {
+		let posts: Array<any> = [];
+		const objectQuery = `{
+            shQuery(postTypeName:"${postTypeName}", postAttrName: "${postAttrName}", arrayValue: ${arrayValue}) {
+				post
+			}
+          }`;
+
+		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
+			debug(objectData);
+			objectData.shQuery.forEach((item: any) => {
+				posts.push(item.post);
+			});
+		});
+
+		return posts;
 	}
 
 	/**
@@ -184,8 +228,8 @@ export class ShObject {
 		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
 			debug(objectData);
 			url = objectData.shObjectURL.url;
-		}
-		)
+		});
+
 		return url;
 	}
 
@@ -208,8 +252,8 @@ export class ShObject {
 		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
 			debug(objectData);
 			url = objectData.shObjectURL.url;
-		}
-		)
+		});
+
 		return url;
 	}
 }

@@ -13,7 +13,7 @@ export class ShContent {
 
   public async getContent(url: string): Promise<any> {
     const objectQuery = `{
-            objectFromURL(url: "${url}") {   
+          shObjectFromURL(url: "${url}") {   
               content
             }
           }`;
@@ -22,6 +22,6 @@ export class ShContent {
       this.objectData = objectData
     )
 
-    return this.objectData.objectFromURL.content;
+    return this.objectData.shObjectFromURL.content;
   }
 }
