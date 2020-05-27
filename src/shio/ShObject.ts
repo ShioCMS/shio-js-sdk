@@ -197,7 +197,19 @@ export class ShObject {
 	 *            scale.
 	 * @public
 	 */
-	public generateImageLink(objectId: string, scale: string): string {
-		return null;
+	public async generateImageLink(objectId: string, scale: number): Promise<string> {
+		let url: string;
+		const objectQuery = `{
+			shObjectURL(objectId: "${objectId}", scale: ${scale}) {
+				url
+			  }
+          }`;
+
+		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
+			debug(objectData);
+			url = objectData.shObjectURL.url;
+		}
+		)
+		return url;
 	}
 }
