@@ -5,23 +5,23 @@ import Debug from 'debug';
 
 const debug = Debug("shio-sdk:ShObject");
 export class ShObject {
-    private shServer: ShServer;
+	private shServer: ShServer;
 
-    public constructor(shServer: ShServer) {
-        this.shServer = shServer;
-    }
+	public constructor(shServer: ShServer) {
+		this.shServer = shServer;
+	}
 
-    public formComponent(shPostTypeName: string, shObjectId: string): string {
-        return null;
-    }
+	public formComponent(shPostTypeName: string, shObjectId: string): string {
+		return null;
+	}
 
 	/**
 	 * @desc Returns Search Result
 	 * @public
 	 */
-    public searchComponent(): string {
-        return null;
-    }
+	public searchComponent(): string {
+		return null;
+	}
 
 	/**
 	 * @desc Returns Folder Navigation Component
@@ -31,21 +31,21 @@ export class ShObject {
 	 *            true or false to show the Home folder.
 	 * @public
 	 */
-    public async navigation(siteName: string, home: boolean): Promise<any> {
-        let folders: any;
-        const objectQuery = `{
+	public async navigation(siteName: string, home: boolean): Promise<any> {
+		let folders: any;
+		const objectQuery = `{
             shNavigation(siteName: "${siteName}", isHome: ${home}) {   
               folders
             }
           }`;
 
-        await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
-            debug(objectData);
-            folders = objectData.shNavigation.folders;
-        }
-        )
-        return folders;
-    }
+		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
+			debug(objectData);
+			folders = objectData.shNavigation.folders;
+		}
+		)
+		return folders;
+	}
 
 	/**
 	 * @desc Returns Folder Navigation Component from Parent Folder
@@ -55,21 +55,21 @@ export class ShObject {
 	 *            true or false to show the Home folder.
 	 * @public
 	 */
-    public async navigationFolder(folderId: string, home: boolean): Promise<any> {
-        let folders: any;
-        const objectQuery = `{
+	public async navigationFolder(folderId: string, home: boolean): Promise<any> {
+		let folders: any;
+		const objectQuery = `{
             shNavigation(folderId: "${folderId}", isHome: "${home}") {   
               folders
             }
           }`;
 
-        await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
-            debug(objectData);
-            folders = objectData.shNavigation.folders;
-        }
-        )
-        return folders;
-    }
+		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
+			debug(objectData);
+			folders = objectData.shNavigation.folders;
+		}
+		)
+		return folders;
+	}
 
 	/**
 	 * @desc Returns Query Component
@@ -80,9 +80,9 @@ export class ShObject {
 	 * @public
 	 */
 
-    public query(folderId: string, postTypeName: boolean): string {
-        return null;
-    }
+	public query(folderId: string, postTypeName: boolean): string {
+		return null;
+	}
 
 	/**
 	 * @desc Returns Query Component
@@ -90,9 +90,9 @@ export class ShObject {
 	 *            Post Type Name.         
 	 * @public
 	 */
-    public queryByPostType(postTypeName: string): string {
-        return null;
-    }
+	public queryByPostType(postTypeName: string): string {
+		return null;
+	}
 
 	/**
 	 * @desc Returns Query Component
@@ -104,9 +104,9 @@ export class ShObject {
 	 *            Array Value.            
 	 * @public
 	 */
-    public queryByPostTypeIn(postTypeName: string, postAttrName: string, arrayValue: string): string {
-        return null;
-    }
+	public queryByPostTypeIn(postTypeName: string, postAttrName: string, arrayValue: string): string {
+		return null;
+	}
 
 	/**
 	 * @desc Returns getRelation Component
@@ -114,9 +114,9 @@ export class ShObject {
 	 *            Post Attribute Id.
 	 * @public
 	 */
-    public getRelation(shPostAttrId: string): string {
-        return null;
-    }
+	public getRelation(shPostAttrId: string): string {
+		return null;
+	}
 
 	/**
 	 * @desc Generate Post Link
@@ -124,9 +124,9 @@ export class ShObject {
 	 *            Post Id.
 	 * @public
 	 */
-    public generatePostLink(postId: string): string {
-        return null;
-    }
+	public async generatePostLink(postId: string): Promise<string> {
+		return await this.generateObjectLink(postId);
+	}
 
 	/**
 	 * @desc Generate Folder Link
@@ -134,9 +134,9 @@ export class ShObject {
 	 *            Folder Id.
 	 * @public
 	 */
-    public generateFolderLink(folderId: string): string {
-        return "link123";
-    }
+	public async generateFolderLink(folderId: string): Promise<string> {
+		return await this.generateObjectLink(folderId);
+	}
 
 	/**
 	 * @desc Get Post Map
@@ -144,9 +144,9 @@ export class ShObject {
 	 *            Post Id.
 	 * @public
 	 */
-    public getPost(postId: string): string {
-        return null;
-    }
+	public getPost(postId: string): string {
+		return null;
+	}
 
 	/**
 	 * @desc Get Folder Map
@@ -154,9 +154,9 @@ export class ShObject {
 	 *            Folder Id.
 	 * @public
 	 */
-    public getFolderMap(folderId: string): string {
-        return null;
-    }
+	public getFolderMap(folderId: string): string {
+		return null;
+	}
 
 	/**
 	 * @desc Get Parent Folder Map
@@ -164,18 +164,30 @@ export class ShObject {
 	 *            Folder Id.
 	 * @public
 	 */
-    public getParentFolder(folderId: string): string {
-        return null;
-    }
+	public getParentFolder(folderId: string): string {
+		return null;
+	}
 	/**
 	 * @desc Generate Object Link
 	 * @param objectId
 	 *            Object Id.
 	 * @public
 	 */
-    public generateObjectLink(objectId: string): string {
-        return null;
-    }
+	public async generateObjectLink(objectId: string): Promise<string> {
+		let url: string;
+		const objectQuery = `{
+			shObjectURL(objectId:"${objectId}") {
+				url
+			  }
+          }`;
+
+		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
+			debug(objectData);
+			url = objectData.shObjectURL.url;
+		}
+		)
+		return url;
+	}
 
 	/**
 	 * @desc Generate Image Link
@@ -185,7 +197,7 @@ export class ShObject {
 	 *            scale.
 	 * @public
 	 */
-    public generateImageLink(objectId: string, scale: string): string {
-        return null;
-    }
+	public generateImageLink(objectId: string, scale: string): string {
+		return null;
+	}
 }
