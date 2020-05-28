@@ -43,8 +43,9 @@ export class ShPageLayout {
           }`;
 
         await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
-            debug(objectData);
-            pageLayoutName = objectData.shObjectFromURL.pageLayout;
+            let graphQL : any = objectData
+            debug(graphQL);
+            pageLayoutName = graphQL.shObjectFromURL.pageLayout;
         }
         )
         return pageLayoutName;
