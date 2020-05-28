@@ -40,8 +40,9 @@ export class ShObject {
           }`;
 
 		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
-			debug(objectData);
-			folders = objectData.shNavigation.folders;
+			let graphQL : any = objectData
+			debug(graphQL);			
+			folders = graphQL.shNavigation.folders;
 		});
 
 		return folders;
@@ -64,8 +65,9 @@ export class ShObject {
           }`;
 
 		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
-			debug(objectData);
-			folders = objectData.shNavigation.folders;
+			let graphQL : any = objectData
+			debug(graphQL);
+			folders = graphQL.shNavigation.folders;
 		});
 
 		return folders;
@@ -89,8 +91,9 @@ export class ShObject {
           }`;
 
 		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
-			debug(objectData);
-			objectData.shQuery.forEach((item: any) => {
+			let graphQL : any = objectData
+			debug(graphQL);
+			graphQL.shQuery.forEach((item: any) => {
 				posts.push(item.post);
 			});
 		});
@@ -113,8 +116,8 @@ export class ShObject {
           }`;
 
 		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
-			
-			objectData.shQuery.forEach((item: any) => {
+			let graphQL : any = objectData
+			graphQL.shQuery.forEach((item: any) => {
 				posts.push(item.post);
 			});
 		});
@@ -143,8 +146,9 @@ export class ShObject {
           }`;
 
 		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
-			debug(objectData);
-			objectData.shQuery.forEach((item: any) => {
+			let graphQL : any = objectData
+			debug(graphQL);
+			graphQL.shQuery.forEach((item: any) => {
 				posts.push(item.post);
 			});
 		});
@@ -226,8 +230,9 @@ export class ShObject {
           }`;
 
 		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
-			debug(objectData);
-			url = objectData.shObjectURL.url;
+			let graphQL : any = objectData
+			debug(graphQL);
+			url = graphQL.shObjectURL.url;
 		});
 
 		return url;
@@ -250,8 +255,9 @@ export class ShObject {
           }`;
 
 		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
-			debug(objectData);
-			url = objectData.shObjectURL.url;
+			let graphQL : any = objectData
+			debug(graphQL);
+			url = graphQL.shObjectURL.url;
 		});
 
 		return url;
