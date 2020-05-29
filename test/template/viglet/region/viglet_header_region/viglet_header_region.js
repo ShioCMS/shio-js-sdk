@@ -1,7 +1,5 @@
-'use strict'
-var Handlebars = require('handlebars');
-
-async function render(shContent, shObject, html) {
+(async () => {
+    var Handlebars = require('handlebars');
     var template = Handlebars.compile(html);
 
     var navigation = shObject.navigation("Viglet", true);
@@ -27,10 +25,6 @@ async function render(shContent, shObject, html) {
         folders.push(folder);
     });
 
-    var html = template(folders);
-    return html;
-
-}
-
-module.exports.render = render;
-
+    html = template(folders);
+    html
+})();

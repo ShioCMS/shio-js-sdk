@@ -1,7 +1,6 @@
 'use strict'
 import fs from 'fs';
 import cheerio from 'cheerio';
-import requireFromString from 'require-from-string'
 import { request } from 'graphql-request';
 import { ShRegion } from './ShRegion';
 import { ShServer } from './ShServer';
@@ -18,9 +17,8 @@ export class ShPageLayout {
         this.url = url;
     }
 
-    public async readPageLayout(filePath: string, shContent: any, shObject: any) {
-        var data = fs.readFileSync(filePath, 'utf-8');
-        const $ = cheerio.load(data.toString());
+    public async processRegions(html: string, shContent: any, shObject: any) {
+        const $ = cheerio.load(html);
         let shServer: ShServer = this.shServer;
         await Promise.all($('[sh-region]').map(async function () {
             var shRegion = $(this);
@@ -60,12 +58,12 @@ export class ShPageLayout {
         let pageLayoutJS: any = null;
         if (fs.existsSync(directoryPath)) {
             let commonPath: string = `${directoryPath}/${pageLayoutName}`;
-            html = await this.readPageLayout(`${commonPath}.hbs`, shContent, shObject);
+            let htmlFile = fs.readFileSync(`${commonPath}.hbs`, 'utf-8');
+            html = await this.processRegions(htmlFile, shContent, shObject);
             js = fs.readFileSync(`${commonPath}.js`, 'utf-8');
-            pageLayoutJS = requireFromString(js);
-
         }
         else {
+            let graphQL: any = null;
             const objectQuery = `{
                 pageLayouts(where:{title:"${pageLayoutName}"}) {
                   html
@@ -74,15 +72,20 @@ export class ShPageLayout {
               }`;
 
             await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
-                let graphQL: any = objectData
+                graphQL = objectData;
                 debug(graphQL);
-                html = graphQL.pageLayouts.html;
-                js = graphQL.pageLayouts.javascript;
-                pageLayoutJS = requireFromString(js);
 
             });
+
+            html = await this.processRegions(graphQL.pageLayouts[0].html, shContent, shObject);
+            js = "var Handlebars = require('handlebars'); " + graphQL.pageLayouts[0].javascript;
         }
-        return await pageLayoutJS.render(shContent, shObject, html);
+        let result = await this.renderProcess(shContent, shObject, js, html);
+        return result;
     };
 
+
+    public async renderProcess(shContent: any, shObject: any, js: string, html: string): Promise<string> {
+        return await eval(js);
+    }
 }
