@@ -9,8 +9,8 @@ const shServer = new ShServer(ShConstTest.endpoint);
 describe('ShPageLayout', () => {
     
     it('Should return test', async () => {
-        let pageLayoutName = "viglet_home_layout";
+        let pageLayoutName = "VIGLET_HOME_LAYOUT";
         let shPageLayout = new ShPageLayout(shServer, ShConstTest.urlTest);
-        expect(await shPageLayout.getPageLayoutName()).equals(pageLayoutName.toLowerCase())
+        expect(await shPageLayout.getPageLayoutName()).equals(pageLayoutName)
     })
 })

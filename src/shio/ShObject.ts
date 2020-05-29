@@ -121,7 +121,6 @@ export class ShObject {
 				posts.push(item.post);
 			});
 		});
-
 		debug(posts);
 		
 		return posts;
@@ -261,5 +260,30 @@ export class ShObject {
 		});
 
 		return url;
+	}
+
+	public async getObjectFromURL(url: string): Promise<any> {
+		let object: any;
+		const objectQuery = `{
+			shObjectFromURL(url:"${url}"){
+			  id,
+			  content,
+			  context,
+			  format,
+			  locale,    
+			  pageLayout,
+			  site,
+			  type
+			  
+			}
+		  }`;
+
+		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
+			let graphQL : any = objectData
+			debug(graphQL);
+			object = graphQL.shObjectFromURL;
+		});
+
+		return object;
 	}
 }

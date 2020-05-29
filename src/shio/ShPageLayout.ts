@@ -43,7 +43,7 @@ export class ShPageLayout {
           }`;
 
         await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
-            let graphQL : any = objectData
+            let graphQL: any = objectData
             debug(graphQL);
             pageLayoutName = graphQL.shObjectFromURL.pageLayout;
         }
@@ -53,10 +53,35 @@ export class ShPageLayout {
 
     public async render(shContent: any, shObject: any): Promise<string> {
         let pageLayoutName: string = await this.getPageLayoutName();
-        let commonPath: string = `${this.shServer.getTemplatePath()}/pageLayout/${pageLayoutName}/${pageLayoutName}`;
-        let html: string = await this.readPageLayout(`${commonPath}.hbs`, shContent, shObject);
-        let js: string = fs.readFileSync(`${commonPath}.js`, 'utf-8');
-        let pageLayoutJS: any = requireFromString(js);
+        let pageLayoutNameLC: string = pageLayoutName.toLowerCase();
+        let directoryPath: string = `${this.shServer.getTemplatePath()}/pageLayout/${pageLayoutNameLC}`;
+        let html: string = null;
+        let js: string = null;
+        let pageLayoutJS: any = null;
+        if (fs.existsSync(directoryPath)) {
+            let commonPath: string = `${directoryPath}/${pageLayoutName}`;
+            html = await this.readPageLayout(`${commonPath}.hbs`, shContent, shObject);
+            js = fs.readFileSync(`${commonPath}.js`, 'utf-8');
+            pageLayoutJS = requireFromString(js);
+
+        }
+        else {
+            const objectQuery = `{
+                pageLayouts(where:{title:"${pageLayoutName}"}) {
+                  html
+                  javascript
+                }
+              }`;
+
+            await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
+                let graphQL: any = objectData
+                debug(graphQL);
+                html = graphQL.pageLayouts.html;
+                js = graphQL.pageLayouts.javascript;
+                pageLayoutJS = requireFromString(js);
+
+            });
+        }
         return await pageLayoutJS.render(shContent, shObject, html);
     };
 
