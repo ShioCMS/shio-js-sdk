@@ -55,9 +55,8 @@ export class ShPageLayout {
         let directoryPath: string = `${this.shServer.getTemplatePath()}/pageLayout/${pageLayoutNameLC}`;
         let html: string = null;
         let js: string = null;
-        let pageLayoutJS: any = null;
         if (fs.existsSync(directoryPath)) {
-            let commonPath: string = `${directoryPath}/${pageLayoutName}`;
+            let commonPath: string = `${directoryPath}/${pageLayoutNameLC}`;
             let htmlFile = fs.readFileSync(`${commonPath}.hbs`, 'utf-8');
             html = await this.processRegions(htmlFile, shContent, shObject);
             js = fs.readFileSync(`${commonPath}.js`, 'utf-8');
@@ -80,12 +79,12 @@ export class ShPageLayout {
             html = await this.processRegions(graphQL.pageLayouts[0].html, shContent, shObject);
             js = "var Handlebars = require('handlebars'); " + graphQL.pageLayouts[0].javascript;
         }
-        let result = await this.renderProcess(shContent, shObject, js, html);
+        let result = this.renderProcess(shContent, shObject, js, html);
         return result;
     };
 
 
-    public async renderProcess(shContent: any, shObject: any, js: string, html: string): Promise<string> {
-        return await eval(js);
+    public renderProcess(shContent: any, shObject: any, js: string, html: string): string {
+        return eval(js);
     }
 }

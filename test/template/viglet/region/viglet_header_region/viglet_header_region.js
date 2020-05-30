@@ -1,8 +1,9 @@
-(async () => {
     var Handlebars = require('handlebars');
     var template = Handlebars.compile(html);
 
+    console.log("Etapa 1");
     var navigation = shObject.navigation("Viglet", true);
+    console.log("Etapa 2");
     var forEach = Array.prototype.forEach;
     var currentFolder = new String(shContent.system.id);
     var folders = [];
@@ -27,4 +28,3 @@
 
     html = template(folders);
     html
-})();

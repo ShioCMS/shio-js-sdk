@@ -1,12 +1,15 @@
 'use strict'
 import fs from 'fs';
+import { request } from 'graphql-request';
 import { ShServer } from './ShServer';
+import Debug from 'debug';
 
+const debug = Debug("shio-sdk:ShRegion");
 export class ShRegion {
     private regionName: string;
     private shServer: ShServer;
     public constructor(shServer: ShServer, regionName: string) {
-        this.regionName = regionName.toLowerCase();
+        this.regionName = regionName;
         this.shServer = shServer;
     }
 
@@ -14,9 +17,31 @@ export class ShRegion {
         return this.regionName;
     }
     public async render(shContent: any, shObject: any): Promise<string> {
-        let commonPath: string = `${this.shServer.getTemplatePath()}/region/${this.regionName}/${this.regionName}`;
-        let html: string = fs.readFileSync(`${commonPath}.hbs`, 'utf-8');
-        let js: string = fs.readFileSync(`${commonPath}.js`, 'utf-8');
+        let regionName: string = this.getRegionName();
+        let regionNameLC: string = regionName.toLowerCase();
+        let directoryPath: string = `${this.shServer.getTemplatePath()}/region/${regionNameLC}`;
+        let html: string = null;
+        let js: string = null;
+        if (fs.existsSync(directoryPath)) {
+            let commonPath: string = `${directoryPath}/${regionNameLC}`;
+            html =  fs.readFileSync(`${commonPath}.hbs`, 'utf-8');        
+            js = fs.readFileSync(`${commonPath}.js`, 'utf-8');
+        }
+        else {
+            let graphQL: any = null;
+            const objectQuery = `{
+                regions(where:{title:"${regionName}"}) {
+                  html
+                  javascript
+                }
+              }`;
+            await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
+                graphQL = objectData;
+                debug(graphQL);
+            });
+            html = graphQL.regions[0].html;
+            js = "var Handlebars = require('handlebars'); " + graphQL.regions[0].javascript;
+        }
         return this.renderProcess(shContent, shObject, js, html);
     };
 

@@ -2,6 +2,7 @@
 import { ShServer } from './ShServer';
 import { request } from 'graphql-request';
 import Debug from 'debug';
+import deasync from 'deasync';
 
 const debug = Debug("shio-sdk:ShObject");
 export class ShObject {
@@ -31,7 +32,21 @@ export class ShObject {
 	 *            true or false to show the Home folder.
 	 * @public
 	 */
-	public async navigation(siteName: string, home: boolean): Promise<any> {
+
+	public navigation(siteName: string, home: boolean): any {
+		let done: boolean = false;
+		let returnData: any = null;
+
+		this.navigationAsync(siteName, home).then(function (data) {
+			returnData = data;
+			done = true;
+		})
+
+		deasync.loopWhile(function () { return !done; });
+		return returnData;
+	}
+
+	public async navigationAsync(siteName: string, home: boolean): Promise<any> {
 		let folders: any;
 		const objectQuery = `{
             shNavigation(siteName: "${siteName}", isHome: ${home}) {   
@@ -39,8 +54,9 @@ export class ShObject {
             }
           }`;
 
+
 		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
-			let graphQL : any = objectData
+			let graphQL: any = objectData
 			debug(graphQL);			
 			folders = graphQL.shNavigation.folders;
 		});
@@ -65,7 +81,7 @@ export class ShObject {
           }`;
 
 		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
-			let graphQL : any = objectData
+			let graphQL: any = objectData
 			debug(graphQL);
 			folders = graphQL.shNavigation.folders;
 		});
@@ -81,8 +97,19 @@ export class ShObject {
 	 *            Post Type Name.
 	 * @public
 	 */
+	public query(folderId: string, postTypeName: string): any {
+		let done: boolean = false;
+		let returnData: any = null;
 
-	public async query(folderId: string, postTypeName: string): Promise<any> {
+		this.queryAsync(folderId, postTypeName).then(function (data) {
+			returnData = data;
+			done = true;
+		})
+
+		deasync.loopWhile(function () { return !done; });
+		return returnData;
+	}
+	public async queryAsync(folderId: string, postTypeName: string): Promise<any> {
 		let posts: Array<any> = [];
 		const objectQuery = `{
             shQuery(postTypeName:"${postTypeName}", folderId:"${folderId}") {
@@ -91,7 +118,7 @@ export class ShObject {
           }`;
 
 		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
-			let graphQL : any = objectData
+			let graphQL: any = objectData
 			debug(graphQL);
 			graphQL.shQuery.forEach((item: any) => {
 				posts.push(item.post);
@@ -116,13 +143,13 @@ export class ShObject {
           }`;
 
 		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
-			let graphQL : any = objectData
+			let graphQL: any = objectData
 			graphQL.shQuery.forEach((item: any) => {
 				posts.push(item.post);
 			});
 		});
 		debug(posts);
-		
+
 		return posts;
 	}
 
@@ -145,7 +172,7 @@ export class ShObject {
           }`;
 
 		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
-			let graphQL : any = objectData
+			let graphQL: any = objectData
 			debug(graphQL);
 			graphQL.shQuery.forEach((item: any) => {
 				posts.push(item.post);
@@ -181,7 +208,21 @@ export class ShObject {
 	 *            Folder Id.
 	 * @public
 	 */
-	public async generateFolderLink(folderId: string): Promise<string> {
+	public generateFolderLink(folderId: string): string {
+		let done: boolean = false;
+		let returnData: string = null;
+
+		this.generateFolderLinkAsync(folderId).then(function (data) {
+			returnData = data;
+			done = true;
+		})
+
+		deasync.loopWhile(function () { return !done; });
+
+		return returnData;
+	}
+
+	public async generateFolderLinkAsync(folderId: string): Promise<string> {
 		return await this.generateObjectLink(folderId);
 	}
 
@@ -229,7 +270,7 @@ export class ShObject {
           }`;
 
 		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
-			let graphQL : any = objectData
+			let graphQL: any = objectData
 			debug(graphQL);
 			url = graphQL.shObjectURL.url;
 		});
@@ -254,7 +295,7 @@ export class ShObject {
           }`;
 
 		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
-			let graphQL : any = objectData
+			let graphQL: any = objectData
 			debug(graphQL);
 			url = graphQL.shObjectURL.url;
 		});
@@ -279,7 +320,7 @@ export class ShObject {
 		  }`;
 
 		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
-			let graphQL : any = objectData
+			let graphQL: any = objectData
 			debug(graphQL);
 			object = graphQL.shObjectFromURL;
 		});
