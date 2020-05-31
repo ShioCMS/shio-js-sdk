@@ -90,16 +90,17 @@
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_shio_shpagelayout_.shpagelayout.html#shcontext" class="tsd-kind-icon">sh<wbr>Context</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_shio_shpagelayout_.shpagelayout.html#shserver" class="tsd-kind-icon">sh<wbr>Server</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_shio_shpagelayout_.shpagelayout.html#url" class="tsd-kind-icon">url</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_shio_shpagelayout_.shpagelayout.html#getpagelayoutname" class="tsd-kind-icon">get<wbr>Page<wbr>Layout<wbr>Name</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_shio_shpagelayout_.shpagelayout.html#readpagelayout" class="tsd-kind-icon">read<wbr>Page<wbr>Layout</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_shio_shpagelayout_.shpagelayout.html#processregions" class="tsd-kind-icon">process<wbr>Regions</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_shio_shpagelayout_.shpagelayout.html#render" class="tsd-kind-icon">render</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_shio_shpagelayout_.shpagelayout.html#renderprocess" class="tsd-kind-icon">render<wbr>Process</a></li>
 							</ul>
 						</section>
 					</div>
@@ -111,22 +112,19 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>ShPage<wbr>Layout<span class="tsd-signature-symbol">(</span>shServer<span class="tsd-signature-symbol">: </span><a href="_shio_shserver_.shserver.html" class="tsd-signature-type">ShServer</a>, url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_shio_shpagelayout_.shpagelayout.html" class="tsd-signature-type">ShPageLayout</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>ShPage<wbr>Layout<span class="tsd-signature-symbol">(</span>shContext<span class="tsd-signature-symbol">: </span><a href="_shio_shcontext_.shcontext.html" class="tsd-signature-type">ShContext</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_shio_shpagelayout_.shpagelayout.html" class="tsd-signature-type">ShPageLayout</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/dc29c4a/src/shio/ShPageLayout.ts#L14">shio/ShPageLayout.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/a2f395a/src/shio/ShPageLayout.ts#L14">shio/ShPageLayout.ts:14</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>shServer: <a href="_shio_shserver_.shserver.html" class="tsd-signature-type">ShServer</a></h5>
-								</li>
-								<li>
-									<h5>url: <span class="tsd-signature-type">string</span></h5>
+									<h5>shContext: <a href="_shio_shcontext_.shcontext.html" class="tsd-signature-type">ShContext</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_shio_shpagelayout_.shpagelayout.html" class="tsd-signature-type">ShPageLayout</a></h4>
@@ -137,22 +135,22 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="shcontext" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> sh<wbr>Context</h3>
+					<div class="tsd-signature tsd-kind-icon">sh<wbr>Context<span class="tsd-signature-symbol">:</span> <a href="_shio_shcontext_.shcontext.html" class="tsd-signature-type">ShContext</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/a2f395a/src/shio/ShPageLayout.ts#L14">shio/ShPageLayout.ts:14</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="shserver" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> sh<wbr>Server</h3>
 					<div class="tsd-signature tsd-kind-icon">sh<wbr>Server<span class="tsd-signature-symbol">:</span> <a href="_shio_shserver_.shserver.html" class="tsd-signature-type">ShServer</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/dc29c4a/src/shio/ShPageLayout.ts#L13">shio/ShPageLayout.ts:13</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="url" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> url</h3>
-					<div class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/dc29c4a/src/shio/ShPageLayout.ts#L14">shio/ShPageLayout.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/a2f395a/src/shio/ShPageLayout.ts#L13">shio/ShPageLayout.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -169,7 +167,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/dc29c4a/src/shio/ShPageLayout.ts#L37">shio/ShPageLayout.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/a2f395a/src/shio/ShPageLayout.ts#L36">shio/ShPageLayout.ts:36</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -177,22 +175,22 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="readpagelayout" class="tsd-anchor"></a>
-					<h3>read<wbr>Page<wbr>Layout</h3>
+					<a name="processregions" class="tsd-anchor"></a>
+					<h3>process<wbr>Regions</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">read<wbr>Page<wbr>Layout<span class="tsd-signature-symbol">(</span>filePath<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, shContent<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, shObject<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">process<wbr>Regions<span class="tsd-signature-symbol">(</span>html<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, shContent<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, shObject<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/dc29c4a/src/shio/ShPageLayout.ts#L21">shio/ShPageLayout.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/a2f395a/src/shio/ShPageLayout.ts#L21">shio/ShPageLayout.ts:21</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>filePath: <span class="tsd-signature-type">string</span></h5>
+									<h5>html: <span class="tsd-signature-type">string</span></h5>
 								</li>
 								<li>
 									<h5>shContent: <span class="tsd-signature-type">any</span></h5>
@@ -215,7 +213,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/dc29c4a/src/shio/ShPageLayout.ts#L54">shio/ShPageLayout.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/a2f395a/src/shio/ShPageLayout.ts#L53">shio/ShPageLayout.ts:53</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -228,6 +226,38 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="renderprocess" class="tsd-anchor"></a>
+					<h3>render<wbr>Process</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">render<wbr>Process<span class="tsd-signature-symbol">(</span>shContent<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, shObject<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, js<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, html<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/a2f395a/src/shio/ShPageLayout.ts#L94">shio/ShPageLayout.ts:94</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>shContent: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>shObject: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>js: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>html: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -244,6 +274,9 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_shio_shcontent_.html">&quot;shio/<wbr>ShContent&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_shio_shcontext_.html">&quot;shio/<wbr>ShContext&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_shio_shobject_.html">&quot;shio/<wbr>ShObject&quot;</a>
@@ -270,19 +303,22 @@
 								<a href="_shio_shpagelayout_.shpagelayout.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_shio_shpagelayout_.shpagelayout.html#shserver" class="tsd-kind-icon">sh<wbr>Server</a>
+								<a href="_shio_shpagelayout_.shpagelayout.html#shcontext" class="tsd-kind-icon">sh<wbr>Context</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_shio_shpagelayout_.shpagelayout.html#url" class="tsd-kind-icon">url</a>
+								<a href="_shio_shpagelayout_.shpagelayout.html#shserver" class="tsd-kind-icon">sh<wbr>Server</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_shio_shpagelayout_.shpagelayout.html#getpagelayoutname" class="tsd-kind-icon">get<wbr>Page<wbr>Layout<wbr>Name</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_shio_shpagelayout_.shpagelayout.html#readpagelayout" class="tsd-kind-icon">read<wbr>Page<wbr>Layout</a>
+								<a href="_shio_shpagelayout_.shpagelayout.html#processregions" class="tsd-kind-icon">process<wbr>Regions</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_shio_shpagelayout_.shpagelayout.html#render" class="tsd-kind-icon">render</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_shio_shpagelayout_.shpagelayout.html#renderprocess" class="tsd-kind-icon">render<wbr>Process</a>
 							</li>
 						</ul>
 					</li>

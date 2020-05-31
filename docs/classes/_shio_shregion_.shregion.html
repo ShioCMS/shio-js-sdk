@@ -91,6 +91,7 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_shio_shregion_.shregion.html#regionname" class="tsd-kind-icon">region<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_shio_shregion_.shregion.html#shcontext" class="tsd-kind-icon">sh<wbr>Context</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_shio_shregion_.shregion.html#shserver" class="tsd-kind-icon">sh<wbr>Server</a></li>
 							</ul>
 						</section>
@@ -99,6 +100,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_shio_shregion_.shregion.html#getregionname" class="tsd-kind-icon">get<wbr>Region<wbr>Name</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_shio_shregion_.shregion.html#render" class="tsd-kind-icon">render</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_shio_shregion_.shregion.html#renderprocess" class="tsd-kind-icon">render<wbr>Process</a></li>
 							</ul>
 						</section>
 					</div>
@@ -110,19 +112,19 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>ShRegion<span class="tsd-signature-symbol">(</span>shServer<span class="tsd-signature-symbol">: </span><a href="_shio_shserver_.shserver.html" class="tsd-signature-type">ShServer</a>, regionName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_shio_shregion_.shregion.html" class="tsd-signature-type">ShRegion</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>ShRegion<span class="tsd-signature-symbol">(</span>shContext<span class="tsd-signature-symbol">: </span><a href="_shio_shcontext_.shcontext.html" class="tsd-signature-type">ShContext</a>, regionName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_shio_shregion_.shregion.html" class="tsd-signature-type">ShRegion</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/dc29c4a/src/shio/ShRegion.ts#L8">shio/ShRegion.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/a2f395a/src/shio/ShRegion.ts#L12">shio/ShRegion.ts:12</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>shServer: <a href="_shio_shserver_.shserver.html" class="tsd-signature-type">ShServer</a></h5>
+									<h5>shContext: <a href="_shio_shcontext_.shcontext.html" class="tsd-signature-type">ShContext</a></h5>
 								</li>
 								<li>
 									<h5>regionName: <span class="tsd-signature-type">string</span></h5>
@@ -141,7 +143,17 @@
 					<div class="tsd-signature tsd-kind-icon">region<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/dc29c4a/src/shio/ShRegion.ts#L7">shio/ShRegion.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/a2f395a/src/shio/ShRegion.ts#L10">shio/ShRegion.ts:10</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="shcontext" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> sh<wbr>Context</h3>
+					<div class="tsd-signature tsd-kind-icon">sh<wbr>Context<span class="tsd-signature-symbol">:</span> <a href="_shio_shcontext_.shcontext.html" class="tsd-signature-type">ShContext</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/a2f395a/src/shio/ShRegion.ts#L12">shio/ShRegion.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -151,7 +163,7 @@
 					<div class="tsd-signature tsd-kind-icon">sh<wbr>Server<span class="tsd-signature-symbol">:</span> <a href="_shio_shserver_.shserver.html" class="tsd-signature-type">ShServer</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/dc29c4a/src/shio/ShRegion.ts#L8">shio/ShRegion.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/a2f395a/src/shio/ShRegion.ts#L11">shio/ShRegion.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -168,7 +180,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/dc29c4a/src/shio/ShRegion.ts#L14">shio/ShRegion.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/a2f395a/src/shio/ShRegion.ts#L20">shio/ShRegion.ts:20</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -185,7 +197,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/dc29c4a/src/shio/ShRegion.ts#L17">shio/ShRegion.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/a2f395a/src/shio/ShRegion.ts#L23">shio/ShRegion.ts:23</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -198,6 +210,38 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="renderprocess" class="tsd-anchor"></a>
+					<h3>render<wbr>Process</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">render<wbr>Process<span class="tsd-signature-symbol">(</span>shContent<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, shObject<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, js<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, html<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/a2f395a/src/shio/ShRegion.ts#L59">shio/ShRegion.ts:59</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>shContent: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>shObject: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>js: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>html: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -214,6 +258,9 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_shio_shcontent_.html">&quot;shio/<wbr>ShContent&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_shio_shcontext_.html">&quot;shio/<wbr>ShContext&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_shio_shobject_.html">&quot;shio/<wbr>ShObject&quot;</a>
@@ -243,6 +290,9 @@
 								<a href="_shio_shregion_.shregion.html#regionname" class="tsd-kind-icon">region<wbr>Name</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_shio_shregion_.shregion.html#shcontext" class="tsd-kind-icon">sh<wbr>Context</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="_shio_shregion_.shregion.html#shserver" class="tsd-kind-icon">sh<wbr>Server</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -251,10 +301,16 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_shio_shregion_.shregion.html#render" class="tsd-kind-icon">render</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_shio_shregion_.shregion.html#renderprocess" class="tsd-kind-icon">render<wbr>Process</a>
+							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
+						<a href="../modules/_shio_shregion_.html#debug" class="tsd-kind-icon">debug</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
