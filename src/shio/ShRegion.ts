@@ -24,7 +24,7 @@ export class ShRegion {
         let js: string = null;
         if (fs.existsSync(directoryPath)) {
             let commonPath: string = `${directoryPath}/${regionNameLC}`;
-            html =  fs.readFileSync(`${commonPath}.hbs`, 'utf-8');        
+            html = fs.readFileSync(`${commonPath}.hbs`, 'utf-8');
             js = fs.readFileSync(`${commonPath}.js`, 'utf-8');
         }
         else {
@@ -40,12 +40,17 @@ export class ShRegion {
                 debug(graphQL);
             });
             html = graphQL.regions[0].html;
-            js = "var Handlebars = require('handlebars'); " + graphQL.regions[0].javascript;
+            let jsModules: string = `
+            var Handlebars = require('handlebars'); 
+            var forEach = Array.prototype.forEach;`;
+
+            js = jsModules.concat(graphQL.regions[0].javascript);
+            debug(js);
         }
         return this.renderProcess(shContent, shObject, js, html);
     };
 
-    public renderProcess(shContent: any, shObject: any, js: string, html: string): string {      
+    public renderProcess(shContent: any, shObject: any, js: string, html: string): string {
         return eval(js);
     }
 }

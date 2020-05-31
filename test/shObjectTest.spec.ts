@@ -6,39 +6,39 @@ import { ShConstTest } from './ShConstTest';
 
 const shServer = new ShServer(ShConstTest.endpoint);
 
-describe('ShObject generateObjectLink', () => {
+describe('ShObject generateObjectLinkAsync', () => {
     it('Should return Object URL', async () => {
         let url: string = "/sites/viglet/default/en-us/developers/";
         let shObject: any = new ShObject(shServer);
-        let object: any = await shObject.getObjectFromURL(url);
-        expect(await shObject.generateObjectLink(object.id))
+        let object: any = await shObject.getObjectFromURLAsync(url);
+        expect(await shObject.generateObjectLinkAsync(object.id))
             .equals(url)
     })
 })
 
-describe('ShObject generateFolderLink', () => {
+describe('ShObject generateFolderLinkAsync', () => {
     it('Should return Folder URL', async () => {
         let url: string = "/sites/viglet/default/en-us/developers/";
         let shObject = new ShObject(shServer);
-        let object: any = await shObject.getObjectFromURL(url);
-        expect(await shObject.generateFolderLink(object.id))
+        let object: any = await shObject.getObjectFromURLAsync(url);
+        expect(await shObject.generateFolderLinkAsync(object.id))
             .equals("/sites/viglet/default/en-us/developers/")
     })
 })
-describe('ShObject generatePostLink', () => {
+describe('ShObject generatePostLinkAsync', () => {
     it('Should return Post URL', async () => {
         let url: string = "/sites/stock/default/en-us/sample-blog-post";
         let shObject = new ShObject(shServer);
-        let object: any = await shObject.getObjectFromURL(url);
-        expect(await shObject.generatePostLink(object.id))
+        let object: any = await shObject.getObjectFromURLAsync(url);
+        expect(await shObject.generatePostLinkAsync(object.id))
             .equals(url)
     })
 })
 
-describe('ShObject navigation', () => {
+describe('ShObject navigationAsync', () => {
     it('Should return id', async () => {
         let shObject = new ShObject(shServer);
-        let navigation = await shObject.navigation("Viglet", true);
+        let navigation = await shObject.navigationAsync("Viglet", true);
         expect(navigation[0].furl).equals('home')
     })
 })
@@ -53,20 +53,20 @@ describe('ShObject generateImageLink', () => {
 })
 */
 
-describe('ShObject queryByPostType', () => {
+describe('ShObject queryByPostTypeAsync', () => {
     it('Should return length of posts', async () => {
         let shObject = new ShObject(shServer);
-        let posts: Array<any> = await shObject.queryByPostType("Text");
+        let posts: Array<any> = await shObject.queryByPostTypeAsync("Text");
         expect(posts.length).greaterThan(2)
     })
 })
 
-describe('ShObject query', () => {
+describe('ShObject queryAsync', () => {
     it('Should return length of posts', async () => {
         let url: string = "/sites/stock/default/en-us/";
         let shObject = new ShObject(shServer);
-        let object: any = await shObject.getObjectFromURL(url);
-        let posts: Array<any> = await shObject.query(object.id, "Article");
+        let object: any = await shObject.getObjectFromURLAsync(url);
+        let posts: Array<any> = await shObject.queryAsync(object.id, "Article");
         expect(posts.length).greaterThan(2)
     })
 })

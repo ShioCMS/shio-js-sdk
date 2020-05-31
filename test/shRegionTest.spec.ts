@@ -10,6 +10,6 @@ describe('ShRegion', () => {
         
         let regionName = "Region1"
         let shRegion = new ShRegion(shServer, regionName);
-        expect(shRegion.getRegionName()).equals(regionName.toLowerCase())
+        expect(shRegion.getRegionName()).equals(regionName)
     })
 })

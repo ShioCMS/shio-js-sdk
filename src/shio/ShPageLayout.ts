@@ -77,7 +77,11 @@ export class ShPageLayout {
             });
 
             html = await this.processRegions(graphQL.pageLayouts[0].html, shContent, shObject);
-            js = "var Handlebars = require('handlebars'); " + graphQL.pageLayouts[0].javascript;
+            let jsModules: string = `
+            var Handlebars = require('handlebars'); 
+            var forEach = Array.prototype.forEach;`;
+
+            js = jsModules.concat(graphQL.pageLayouts[0].javascript);
         }
         let result = this.renderProcess(shContent, shObject, js, html);
         return result;

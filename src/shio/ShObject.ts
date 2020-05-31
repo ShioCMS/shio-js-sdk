@@ -57,7 +57,7 @@ export class ShObject {
 
 		await request(this.shServer.getEndpoint(), objectQuery).then(objectData => {
 			let graphQL: any = objectData
-			debug(graphQL);			
+			debug(graphQL);
 			folders = graphQL.shNavigation.folders;
 		});
 
@@ -72,7 +72,21 @@ export class ShObject {
 	 *            true or false to show the Home folder.
 	 * @public
 	 */
-	public async navigationFolder(folderId: string, home: boolean): Promise<any> {
+
+	public navigationFolder(folderId: string, home: boolean): any {
+		let done: boolean = false;
+		let returnData: any = null;
+
+		this.navigationFolderAsync(folderId, home).then(function (data) {
+			returnData = data;
+			done = true;
+		})
+
+		deasync.loopWhile(function () { return !done; });
+		return returnData;
+	}
+
+	public async navigationFolderAsync(folderId: string, home: boolean): Promise<any> {
 		let folders: any;
 		const objectQuery = `{
             shNavigation(folderId: "${folderId}", isHome: "${home}") {   
@@ -134,7 +148,21 @@ export class ShObject {
 	 *            Post Type Name.         
 	 * @public
 	 */
-	public async queryByPostType(postTypeName: string): Promise<any> {
+
+	public queryByPostType(postTypeName: string): any {
+		let done: boolean = false;
+		let returnData: any = null;
+
+		this.queryByPostTypeAsync(postTypeName).then(function (data) {
+			returnData = data;
+			done = true;
+		})
+
+		deasync.loopWhile(function () { return !done; });
+		return returnData;
+	}
+
+	public async queryByPostTypeAsync(postTypeName: string): Promise<any> {
 		let posts: Array<any> = [];
 		const objectQuery = `{
             shQuery(postTypeName:"${postTypeName}") {
@@ -163,7 +191,21 @@ export class ShObject {
 	 *            Array Value.            
 	 * @public
 	 */
-	public async queryByPostTypeIn(postTypeName: string, postAttrName: string, arrayValue: Array<string>): Promise<any> {
+
+	public queryByPostTypeIn(postTypeName: string, postAttrName: string, arrayValue: Array<string>): any {
+		let done: boolean = false;
+		let returnData: any = null;
+
+		this.queryByPostTypeInAsync(postTypeName, postAttrName, arrayValue).then(function (data) {
+			returnData = data;
+			done = true;
+		})
+
+		deasync.loopWhile(function () { return !done; });
+		return returnData;
+	}
+
+	public async queryByPostTypeInAsync(postTypeName: string, postAttrName: string, arrayValue: Array<string>): Promise<any> {
 		let posts: Array<any> = [];
 		const objectQuery = `{
             shQuery(postTypeName:"${postTypeName}", postAttrName: "${postAttrName}", arrayValue: ${arrayValue}) {
@@ -198,7 +240,21 @@ export class ShObject {
 	 *            Post Id.
 	 * @public
 	 */
-	public async generatePostLink(postId: string): Promise<string> {
+
+	public generatePostLink(postId: string): string {
+		let done: boolean = false;
+		let returnData: string = null;
+
+		this.generatePostLinkAsync(postId).then(function (data) {
+			returnData = data;
+			done = true;
+		})
+
+		deasync.loopWhile(function () { return !done; });
+		return returnData;
+	}
+
+	public async generatePostLinkAsync(postId: string): Promise<string> {
 		return await this.generateObjectLink(postId);
 	}
 
@@ -261,7 +317,20 @@ export class ShObject {
 	 *            Object Id.
 	 * @public
 	 */
-	public async generateObjectLink(objectId: string): Promise<string> {
+
+	public generateObjectLink(objectId: string): string {
+		let done: boolean = false;
+		let returnData: string = null;
+
+		this.generateObjectLinkAsync(objectId).then(function (data) {
+			returnData = data;
+			done = true;
+		})
+
+		deasync.loopWhile(function () { return !done; });
+		return returnData;
+	}
+	public async generateObjectLinkAsync(objectId: string): Promise<string> {
 		let url: string;
 		const objectQuery = `{
 			shObjectURL(objectId:"${objectId}") {
@@ -286,7 +355,21 @@ export class ShObject {
 	 *            scale.
 	 * @public
 	 */
-	public async generateImageLink(objectId: string, scale: number): Promise<string> {
+
+	public generateImageLink(objectId: string, scale: number): string {
+		let done: boolean = false;
+		let returnData: string = null;
+
+		this.generateImageLinkAsync(objectId, scale).then(function (data) {
+			returnData = data;
+			done = true;
+		})
+
+		deasync.loopWhile(function () { return !done; });
+		return returnData;
+	}
+
+	public async generateImageLinkAsync(objectId: string, scale: number): Promise<string> {
 		let url: string;
 		const objectQuery = `{
 			shObjectURL(objectId: "${objectId}", scale: ${scale}) {
@@ -303,7 +386,20 @@ export class ShObject {
 		return url;
 	}
 
-	public async getObjectFromURL(url: string): Promise<any> {
+	public getObjectFromURL(url: string): any {
+		let done: boolean = false;
+		let returnData: any = null;
+
+		this.getObjectFromURL(url).then(function (data) {
+			returnData = data;
+			done = true;
+		})
+
+		deasync.loopWhile(function () { return !done; });
+		return returnData;
+	}
+
+	public async getObjectFromURLAsync(url: string): Promise<any> {
 		let object: any;
 		const objectQuery = `{
 			shObjectFromURL(url:"${url}"){
