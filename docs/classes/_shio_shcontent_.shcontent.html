@@ -91,7 +91,7 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_shio_shcontent_.shcontent.html#objectdata" class="tsd-kind-icon">object<wbr>Data</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_shio_shcontent_.shcontent.html#shserver" class="tsd-kind-icon">sh<wbr>Server</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_shio_shcontent_.shcontent.html#shcontext" class="tsd-kind-icon">sh<wbr>Context</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -109,19 +109,19 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>ShContent<span class="tsd-signature-symbol">(</span>shServer<span class="tsd-signature-symbol">: </span><a href="_shio_shserver_.shserver.html" class="tsd-signature-type">ShServer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_shio_shcontent_.shcontent.html" class="tsd-signature-type">ShContent</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>ShContent<span class="tsd-signature-symbol">(</span>shContext<span class="tsd-signature-symbol">: </span><a href="_shio_shcontext_.shcontext.html" class="tsd-signature-type">ShContext</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_shio_shcontent_.shcontent.html" class="tsd-signature-type">ShContent</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/dc29c4a/src/shio/ShContent.ts#L8">shio/ShContent.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/a2f395a/src/shio/ShContent.ts#L9">shio/ShContent.ts:9</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>shServer: <a href="_shio_shserver_.shserver.html" class="tsd-signature-type">ShServer</a></h5>
+									<h5>shContext: <a href="_shio_shcontext_.shcontext.html" class="tsd-signature-type">ShContext</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_shio_shcontent_.shcontent.html" class="tsd-signature-type">ShContent</a></h4>
@@ -137,17 +137,17 @@
 					<div class="tsd-signature tsd-kind-icon">object<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/dc29c4a/src/shio/ShContent.ts#L7">shio/ShContent.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/a2f395a/src/shio/ShContent.ts#L8">shio/ShContent.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="shserver" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> sh<wbr>Server</h3>
-					<div class="tsd-signature tsd-kind-icon">sh<wbr>Server<span class="tsd-signature-symbol">:</span> <a href="_shio_shserver_.shserver.html" class="tsd-signature-type">ShServer</a></div>
+					<a name="shcontext" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> sh<wbr>Context</h3>
+					<div class="tsd-signature tsd-kind-icon">sh<wbr>Context<span class="tsd-signature-symbol">:</span> <a href="_shio_shcontext_.shcontext.html" class="tsd-signature-type">ShContext</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/dc29c4a/src/shio/ShContent.ts#L8">shio/ShContent.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/a2f395a/src/shio/ShContent.ts#L9">shio/ShContent.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -158,21 +158,15 @@
 					<a name="getcontent" class="tsd-anchor"></a>
 					<h3>get<wbr>Content</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Content<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Content<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/dc29c4a/src/shio/ShContent.ts#L14">shio/ShContent.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/a2f395a/src/shio/ShContent.ts#L15">shio/ShContent.ts:15</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>url: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
@@ -190,6 +184,9 @@
 					</li>
 					<li class="current tsd-kind-module">
 						<a href="../modules/_shio_shcontent_.html">&quot;shio/<wbr>ShContent&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_shio_shcontext_.html">&quot;shio/<wbr>ShContext&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_shio_shobject_.html">&quot;shio/<wbr>ShObject&quot;</a>
@@ -219,7 +216,7 @@
 								<a href="_shio_shcontent_.shcontent.html#objectdata" class="tsd-kind-icon">object<wbr>Data</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_shio_shcontent_.shcontent.html#shserver" class="tsd-kind-icon">sh<wbr>Server</a>
+								<a href="_shio_shcontent_.shcontent.html#shcontext" class="tsd-kind-icon">sh<wbr>Context</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_shio_shcontent_.shcontent.html#getcontent" class="tsd-kind-icon">get<wbr>Content</a>
