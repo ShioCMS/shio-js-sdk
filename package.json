@@ -34,8 +34,10 @@
   },
   "dependencies": {
     "@types/cheerio": "^0.22.18",
+    "@types/deasync": "^0.1.1",
     "@types/require-from-string": "^1.2.0",
     "cheerio": "^1.0.0-rc.3",
+    "deasync": "^0.1.20",
     "debug": "^4.1.1",
     "graphql-request": "^1.8.2",
     "handlebars": "^4.7.6",

@@ -1,10 +1,8 @@
-'use strict'
-var Handlebars = require('handlebars');
-
-async function render(shContent, shObject, html) {
+    var Handlebars = require('handlebars');
     var template = Handlebars.compile(html);
 
     var navigation = shObject.navigation("Viglet", true);
+    
     var forEach = Array.prototype.forEach;
     var currentFolder = new String(shContent.system.id);
     var folders = [];
@@ -27,10 +25,5 @@ async function render(shContent, shObject, html) {
         folders.push(folder);
     });
 
-    var html = template(folders);
-    return html;
-
-}
-
-module.exports.render = render;
-
+    html = template(folders);
+    html
