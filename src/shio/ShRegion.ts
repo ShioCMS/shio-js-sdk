@@ -11,8 +11,8 @@ export class ShRegion {
     private shServer: ShServer;
     private shContext: ShContext;
 
-    public constructor(shServer: ShServer, shContext: ShContext, regionName: string) {
-        this.shServer = shServer;
+    public constructor(shContext: ShContext, regionName: string) {
+        this.shServer = shContext.getShServer();
         this.shContext = shContext;
         this.regionName = regionName;
     }
@@ -23,7 +23,8 @@ export class ShRegion {
     public async render(shContent: any, shObject: any): Promise<string> {
         let regionName: string = this.getRegionName();
         let regionNameLC: string = regionName.toLowerCase();
-        let directoryPath: string = `${this.shServer.getTemplatePath()}/region/${regionNameLC}`;
+        let siteName: string = await this.shContext.getSiteName();
+        let directoryPath: string = `${this.shServer.getTemplatePath()}/${siteName.toLowerCase()}/region/${regionNameLC}`;
         let html: string = null;
         let js: string = null;
         if (fs.existsSync(directoryPath)) {
@@ -33,7 +34,7 @@ export class ShRegion {
         }
         else {
             let graphQL: any = null;
-            let siteName: string = await this.shContext.getSiteName();  
+            let siteName: string = await this.shContext.getSiteName();
             const objectQuery = `{
                 regions(sites:[${siteName}], where:{title:"${regionName}"}) {
                   html

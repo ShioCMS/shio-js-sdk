@@ -10,10 +10,10 @@ const debug = Debug("shio-sdk:test-ShContent");
 
 const shServer = new ShServer(ShConstTest.endpoint);
 
-describe('ShContent', () => {    
+describe('ShContent', () => {
     it('Should return name of Home Folder', async () => {
-        let shContext = new ShContext(ShConstTest.urlTest);
-        let shContent = new ShContent(shServer, shContext);
+        let shContext = new ShContext(shServer, ShConstTest.urlTest);
+        let shContent = new ShContent(shContext);
         let content = await shContent.getContent();
         debug(content);
         expect(content.system.title).equals('Home')

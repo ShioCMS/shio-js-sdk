@@ -6,11 +6,9 @@ import { ShContext } from './ShContext';
 
 export class ShContent {
   private objectData: any;
-  private shServer: ShServer;
   private shContext: ShContext;
 
-  public constructor(shServer: ShServer, shContext: ShContext) {
-    this.shServer = shServer;
+  public constructor(shContext: ShContext) {
     this.shContext = shContext;
   }
 
@@ -21,7 +19,7 @@ export class ShContent {
             }
           }`;
 
-    await request(this.shServer.getEndpoint(), objectQuery).then(objectData =>
+    await request(this.shContext.getShServer().getEndpoint(), objectQuery).then(objectData =>
       this.objectData = objectData
     )
 

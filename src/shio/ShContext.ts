@@ -31,6 +31,11 @@ export class ShContext {
         debug("objectPath: " + this.objectPath);
 
     }
+
+    public getShServer(): ShServer {
+        return this.shServer;
+    }
+    
     public getUrl(): string {
         return this.url;
     }

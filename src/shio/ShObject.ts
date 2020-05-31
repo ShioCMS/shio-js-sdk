@@ -409,7 +409,8 @@ export class ShObject {
 			  format,
 			  locale,    
 			  pageLayout,
-			  site,
+			  siteId,
+			  siteName,
 			  type
 			  
 			}

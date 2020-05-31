@@ -11,7 +11,7 @@ const debug = Debug("shio-sdk:ShServer");
 export class ShServer {
     private endpoint: string;
 
-    private templatePath: string = "./src/template/viglet";
+    private templatePath: string = "./src/template";
 
     public constructor(endpoint: string) {
         this.endpoint = endpoint;
@@ -20,9 +20,9 @@ export class ShServer {
     public async getPage(url: string): Promise<string> {
         let shContext = new ShContext(this, url);
         if (shContext.getContext() === "sites") {
-            let pageLayout = new ShPageLayout(this, shContext);
+            let pageLayout = new ShPageLayout(shContext);
             let shObject = new ShObject(this);
-            let shContent = new ShContent(this, shContext);
+            let shContent = new ShContent(shContext);
             let content = await shContent.getContent();
             return await pageLayout.render(content, shObject);
         }

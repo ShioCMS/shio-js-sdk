@@ -10,8 +10,8 @@ describe('ShRegion', () => {
     it('Should return name of region', () => {
 
         let regionName = "Region1";
-        let shContext = new ShContext(ShConstTest.urlTest);
-        let shRegion = new ShRegion(shServer, shContext, regionName);
+        let shContext = new ShContext(shServer, ShConstTest.urlTest);
+        let shRegion = new ShRegion(shContext, regionName);
         expect(shRegion.getRegionName()).equals(regionName)
     })
 })

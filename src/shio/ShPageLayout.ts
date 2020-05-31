@@ -13,19 +13,18 @@ export class ShPageLayout {
     private shServer: ShServer;
     private shContext: ShContext;
 
-    public constructor(shServer: ShServer, shContext: ShContext) {
-        this.shServer = shServer;
+    public constructor(shContext: ShContext) {
+        this.shServer = shContext.getShServer();
         this.shContext = shContext;
     }
 
     public async processRegions(html: string, shContent: any, shObject: any) {
         const $ = cheerio.load(html);
-        let shServer: ShServer = this.shServer;
         let shContext: ShContext = this.shContext;
         await Promise.all($('[sh-region]').map(async function () {
             var shRegion = $(this);
             var regionName = shRegion.attr("sh-region");
-            var region = new ShRegion(shServer, shContext, regionName);
+            var region = new ShRegion(shContext, regionName);
             var html = await region.render(shContent, shObject);
             shRegion.html(html);
             return html
@@ -54,7 +53,8 @@ export class ShPageLayout {
     public async render(shContent: any, shObject: any): Promise<string> {
         let pageLayoutName: string = await this.getPageLayoutName();
         let pageLayoutNameLC: string = pageLayoutName.toLowerCase();
-        let directoryPath: string = `${this.shServer.getTemplatePath()}/pageLayout/${pageLayoutNameLC}`;
+        let siteName: string = await this.shContext.getSiteName();
+        let directoryPath: string = `${this.shServer.getTemplatePath()}/${siteName.toLowerCase()}/pageLayout/${pageLayoutNameLC}`;
         let html: string = null;
         let js: string = null;
         if (fs.existsSync(directoryPath)) {
@@ -64,8 +64,8 @@ export class ShPageLayout {
             js = fs.readFileSync(`${commonPath}.js`, 'utf-8');
         }
         else {
-            let graphQL: any = null; 
-            let siteName: string = await this.shContext.getSiteName();           
+            let graphQL: any = null;
+            let siteName: string = await this.shContext.getSiteName();
             const objectQuery = `{
                 pageLayouts(sites:[${siteName}], where:{title:"${pageLayoutName}"}) {
                   html
