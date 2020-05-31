@@ -2,15 +2,19 @@
 import fs from 'fs';
 import { request } from 'graphql-request';
 import { ShServer } from './ShServer';
+import { ShContext } from './ShContext';
 import Debug from 'debug';
 
 const debug = Debug("shio-sdk:ShRegion");
 export class ShRegion {
     private regionName: string;
     private shServer: ShServer;
-    public constructor(shServer: ShServer, regionName: string) {
-        this.regionName = regionName;
+    private shContext: ShContext;
+
+    public constructor(shServer: ShServer, shContext: ShContext, regionName: string) {
         this.shServer = shServer;
+        this.shContext = shContext;
+        this.regionName = regionName;
     }
 
     public getRegionName(): string {
@@ -30,7 +34,7 @@ export class ShRegion {
         else {
             let graphQL: any = null;
             const objectQuery = `{
-                regions(where:{title:"${regionName}"}) {
+                regions(sites:[${this.shContext.getSiteName()}], where:{title:"${regionName}"}) {
                   html
                   javascript
                 }

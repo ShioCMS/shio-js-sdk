@@ -4,26 +4,28 @@ import cheerio from 'cheerio';
 import { request } from 'graphql-request';
 import { ShRegion } from './ShRegion';
 import { ShServer } from './ShServer';
+import { ShContext } from './ShContext';
 import Debug from 'debug';
 
 const debug = Debug("shio-sdk:ShPageLayout");
 
 export class ShPageLayout {
     private shServer: ShServer;
-    private url: string;
+    private shContext: ShContext;
 
-    public constructor(shServer: ShServer, url: string) {
+    public constructor(shServer: ShServer, shContext: ShContext) {
         this.shServer = shServer;
-        this.url = url;
+        this.shContext = shContext;
     }
 
     public async processRegions(html: string, shContent: any, shObject: any) {
         const $ = cheerio.load(html);
         let shServer: ShServer = this.shServer;
+        let shContext: ShContext = this.shContext;
         await Promise.all($('[sh-region]').map(async function () {
             var shRegion = $(this);
             var regionName = shRegion.attr("sh-region");
-            var region = new ShRegion(shServer, regionName);
+            var region = new ShRegion(shServer, shContext, regionName);
             var html = await region.render(shContent, shObject);
             shRegion.html(html);
             return html
@@ -35,7 +37,7 @@ export class ShPageLayout {
     public async getPageLayoutName(): Promise<string> {
         let pageLayoutName: string;
         const objectQuery = `{
-            shObjectFromURL(url: "${this.url}") {   
+            shObjectFromURL(url: "${this.shContext.getUrl()}") {   
               pageLayout
             }
           }`;
@@ -62,9 +64,9 @@ export class ShPageLayout {
             js = fs.readFileSync(`${commonPath}.js`, 'utf-8');
         }
         else {
-            let graphQL: any = null;
+            let graphQL: any = null;           
             const objectQuery = `{
-                pageLayouts(where:{title:"${pageLayoutName}"}) {
+                pageLayouts(sites:[${this.shContext.getSiteName()}], where:{title:"${pageLayoutName}"}) {
                   html
                   javascript
                 }
