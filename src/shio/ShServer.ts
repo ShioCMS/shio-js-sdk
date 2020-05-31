@@ -18,7 +18,7 @@ export class ShServer {
     }
 
     public async getPage(url: string): Promise<string> {
-        let shContext = new ShContext(url);
+        let shContext = new ShContext(this, url);
         if (shContext.getContext() === "sites") {
             let pageLayout = new ShPageLayout(this, shContext);
             let shObject = new ShObject(this);

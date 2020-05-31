@@ -33,8 +33,9 @@ export class ShRegion {
         }
         else {
             let graphQL: any = null;
+            let siteName: string = await this.shContext.getSiteName();  
             const objectQuery = `{
-                regions(sites:[${this.shContext.getSiteName()}], where:{title:"${regionName}"}) {
+                regions(sites:[${siteName}], where:{title:"${regionName}"}) {
                   html
                   javascript
                 }

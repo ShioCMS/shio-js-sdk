@@ -64,9 +64,10 @@ export class ShPageLayout {
             js = fs.readFileSync(`${commonPath}.js`, 'utf-8');
         }
         else {
-            let graphQL: any = null;           
+            let graphQL: any = null; 
+            let siteName: string = await this.shContext.getSiteName();           
             const objectQuery = `{
-                pageLayouts(sites:[${this.shContext.getSiteName()}], where:{title:"${pageLayoutName}"}) {
+                pageLayouts(sites:[${siteName}], where:{title:"${pageLayoutName}"}) {
                   html
                   javascript
                 }
