@@ -41,7 +41,7 @@ export class ShServer {
      * getTemplatePath
      */
     public getTemplatePath() {
-        if (this.shConfig.app.templatePath === null)
+        if (this.shConfig.app.templatePath === null || typeof this.shConfig.app.templatePath === "undefined")
             return "./src/template";
         else
             return this.shConfig.app.templatePath;
@@ -51,7 +51,7 @@ export class ShServer {
     * getFileServer
     */
     public getFileServer() {
-        if (this.shConfig.shioServer.fileServer === null)
+        if (this.shConfig.shioServer.fileServer === null || typeof this.shConfig.shioServer.fileServer === "undefined")
             return "http://shio.viglet.net";
         else
             return this.shConfig.shioServer.fileServer;
@@ -60,9 +60,9 @@ export class ShServer {
     /**
     * getAppPort
     */
-    public getAppPort() {
-        if (this.shConfig.app.port === null)
-            return "3001";
+    public getAppPort(): number {
+        if (this.shConfig.app.port === null || typeof this.shConfig.app.port === "undefined")
+            return 3000;
         else
             return this.shConfig.app.port;
     }

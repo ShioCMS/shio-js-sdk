@@ -9,8 +9,6 @@ export class ShConfig {
 
     public shioServer: ShConfigServer;
 
-    public test: string;
-
     constructor(app: ShConfigApp, shioServer: ShConfigServer) {
         this.app = app;
         this.shioServer = shioServer;

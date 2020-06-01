@@ -3,7 +3,7 @@ import Debug from 'debug';
 const debug = Debug("shio-sdk:ShioConfigApp");
 
 export class ShConfigApp {
-    public port: BigInteger;
+    public port: number;
 
     public templatePath: string;
 
@@ -21,7 +21,7 @@ export class ShConfigApp {
 
     public hasSiteName: boolean;
 
-    constructor(port: BigInteger, templatePath: string, sites: Array<string>, format: string, locale: string, hasContext: boolean, hasFormat: boolean, hasLocale: boolean, hasSiteName: boolean) {
+    constructor(port: number, templatePath: string, sites: Array<string>, format: string, locale: string, hasContext: boolean, hasFormat: boolean, hasLocale: boolean, hasSiteName: boolean) {
         this.port = port;
 
         this.templatePath = templatePath;

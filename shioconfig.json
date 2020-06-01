@@ -15,6 +15,5 @@
         "endpoint": "http://localhost:2710/graphql",
         "fileServer": "http://localhost:2710",
         "token": "450b355f-3c9c-4886-bbb8-be1ccea4aa2b"
-    },
-    "test": "Shio CMS"
+    }
 }
