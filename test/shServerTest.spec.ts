@@ -7,11 +7,9 @@ import { ShConstTest } from './ShConstTest';
 
 const debug = Debug("shio-sdk:test-ShServer");
 
-const shServer = new ShServer(ShConstTest.endpoint)
-
 describe('ShServer', () => {
     it('Should check if exists <title> tag', async () => {
-        shServer.setTemplatePath(ShConstTest.templatePath);
+        let shServer = new ShServer();        
         let html = await shServer.getPage(ShConstTest.urlTest);
         debug(html);
         expect(html).contains("<title>");

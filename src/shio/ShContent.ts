@@ -1,7 +1,6 @@
 'use strict'
 
 import { request } from 'graphql-request';
-import { ShServer } from './ShServer';
 import { ShContext } from './ShContext';
 
 export class ShContent {

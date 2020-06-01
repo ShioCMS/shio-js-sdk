@@ -3,18 +3,18 @@ import { ShPageLayout } from './ShPageLayout';
 import { ShObject } from './ShObject';
 import { ShContent } from './ShContent';
 import { ShContext } from './ShContext';
+import { ShConfig } from './config/ShConfig';
 import Debug from 'debug';
-
 
 const debug = Debug("shio-sdk:ShServer");
 
 export class ShServer {
-    private endpoint: string;
+    private shConfig: ShConfig;
 
-    private templatePath: string = "./src/template";
 
-    public constructor(endpoint: string) {
-        this.endpoint = endpoint;
+    public constructor() {
+        var appRoot = process.cwd();
+        this.shConfig = <ShConfig>require(appRoot + '/shioconfig.json');
     }
 
     public async getPage(url: string): Promise<string> {
@@ -34,20 +34,36 @@ export class ShServer {
      * getEndpoint
      */
     public getEndpoint() {
-        return this.endpoint;
-    }
-
-    /**
-     * setTemplatePath
-     */
-    public setTemplatePath(templatePath: string) {
-        this.templatePath = templatePath;
+        return this.shConfig.shioServer.endpoint;
     }
 
     /**
      * getTemplatePath
      */
     public getTemplatePath() {
-        return this.templatePath;
+        if (this.shConfig.app.templatePath === null)
+            return "./src/template";
+        else
+            return this.shConfig.app.templatePath;
+    }
+
+    /**
+    * getFileServer
+    */
+    public getFileServer() {
+        if (this.shConfig.shioServer.fileServer === null)
+            return "http://shio.viglet.net";
+        else
+            return this.shConfig.shioServer.fileServer;
+    }
+
+    /**
+    * getAppPort
+    */
+    public getAppPort() {
+        if (this.shConfig.app.port === null)
+            return "3001";
+        else
+            return this.shConfig.app.port;
     }
 }

@@ -90,17 +90,17 @@
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_shio_shserver_.shserver.html#endpoint" class="tsd-kind-icon">endpoint</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_shio_shserver_.shserver.html#templatepath" class="tsd-kind-icon">template<wbr>Path</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_shio_shserver_.shserver.html#shconfig" class="tsd-kind-icon">sh<wbr>Config</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_shio_shserver_.shserver.html#getappport" class="tsd-kind-icon">get<wbr>App<wbr>Port</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_shio_shserver_.shserver.html#getendpoint" class="tsd-kind-icon">get<wbr>Endpoint</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_shio_shserver_.shserver.html#getfileserver" class="tsd-kind-icon">get<wbr>File<wbr>Server</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_shio_shserver_.shserver.html#getpage" class="tsd-kind-icon">get<wbr>Page</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_shio_shserver_.shserver.html#gettemplatepath" class="tsd-kind-icon">get<wbr>Template<wbr>Path</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_shio_shserver_.shserver.html#settemplatepath" class="tsd-kind-icon">set<wbr>Template<wbr>Path</a></li>
 							</ul>
 						</section>
 					</div>
@@ -112,21 +112,15 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>ShServer<span class="tsd-signature-symbol">(</span>endpoint<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_shio_shserver_.shserver.html" class="tsd-signature-type">ShServer</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>ShServer<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_shio_shserver_.shserver.html" class="tsd-signature-type">ShServer</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/a2f395a/src/shio/ShServer.ts#L14">shio/ShServer.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/55bd0e2/src/shio/ShServer.ts#L12">shio/ShServer.ts:12</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>endpoint: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_shio_shserver_.shserver.html" class="tsd-signature-type">ShServer</a></h4>
 						</li>
 					</ul>
@@ -135,28 +129,40 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="endpoint" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> endpoint</h3>
-					<div class="tsd-signature tsd-kind-icon">endpoint<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="shconfig" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> sh<wbr>Config</h3>
+					<div class="tsd-signature tsd-kind-icon">sh<wbr>Config<span class="tsd-signature-symbol">:</span> <a href="_shio_config_shconfig_.shconfig.html" class="tsd-signature-type">ShConfig</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/a2f395a/src/shio/ShServer.ts#L12">shio/ShServer.ts:12</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="templatepath" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> template<wbr>Path</h3>
-					<div class="tsd-signature tsd-kind-icon">template<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;./src/template&quot;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/a2f395a/src/shio/ShServer.ts#L14">shio/ShServer.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/55bd0e2/src/shio/ShServer.ts#L12">shio/ShServer.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getappport" class="tsd-anchor"></a>
+					<h3>get<wbr>App<wbr>Port</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>App<wbr>Port<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Uint8Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"3001"</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/55bd0e2/src/shio/ShServer.ts#L63">shio/ShServer.ts:63</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>getAppPort</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Uint8Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"3001"</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getendpoint" class="tsd-anchor"></a>
 					<h3>get<wbr>Endpoint</h3>
@@ -167,12 +173,34 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/a2f395a/src/shio/ShServer.ts#L36">shio/ShServer.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/55bd0e2/src/shio/ShServer.ts#L36">shio/ShServer.ts:36</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>getEndpoint</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getfileserver" class="tsd-anchor"></a>
+					<h3>get<wbr>File<wbr>Server</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>File<wbr>Server<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/55bd0e2/src/shio/ShServer.ts#L53">shio/ShServer.ts:53</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>getFileServer</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -189,7 +217,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/a2f395a/src/shio/ShServer.ts#L20">shio/ShServer.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/55bd0e2/src/shio/ShServer.ts#L20">shio/ShServer.ts:20</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -212,7 +240,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/a2f395a/src/shio/ShServer.ts#L50">shio/ShServer.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/55bd0e2/src/shio/ShServer.ts#L43">shio/ShServer.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -221,34 +249,6 @@
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="settemplatepath" class="tsd-anchor"></a>
-					<h3>set<wbr>Template<wbr>Path</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Template<wbr>Path<span class="tsd-signature-symbol">(</span>templatePath<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/ShioCMS/shio-js-sdk/blob/a2f395a/src/shio/ShServer.ts#L43">shio/ShServer.ts:43</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>setTemplatePath</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>templatePath: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -281,6 +281,15 @@
 					<li class="current tsd-kind-module">
 						<a href="../modules/_shio_shserver_.html">&quot;shio/<wbr>ShServer&quot;</a>
 					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_shio_config_shconfig_.html">&quot;shio/config/<wbr>ShConfig&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_shio_config_shconfigapp_.html">&quot;shio/config/<wbr>ShConfig<wbr>App&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_shio_config_shconfigserver_.html">&quot;shio/config/<wbr>ShConfig<wbr>Server&quot;</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
@@ -294,22 +303,22 @@
 								<a href="_shio_shserver_.shserver.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_shio_shserver_.shserver.html#endpoint" class="tsd-kind-icon">endpoint</a>
+								<a href="_shio_shserver_.shserver.html#shconfig" class="tsd-kind-icon">sh<wbr>Config</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_shio_shserver_.shserver.html#templatepath" class="tsd-kind-icon">template<wbr>Path</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_shio_shserver_.shserver.html#getappport" class="tsd-kind-icon">get<wbr>App<wbr>Port</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_shio_shserver_.shserver.html#getendpoint" class="tsd-kind-icon">get<wbr>Endpoint</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_shio_shserver_.shserver.html#getfileserver" class="tsd-kind-icon">get<wbr>File<wbr>Server</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_shio_shserver_.shserver.html#getpage" class="tsd-kind-icon">get<wbr>Page</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_shio_shserver_.shserver.html#gettemplatepath" class="tsd-kind-icon">get<wbr>Template<wbr>Path</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_shio_shserver_.shserver.html#settemplatepath" class="tsd-kind-icon">set<wbr>Template<wbr>Path</a>
 							</li>
 						</ul>
 					</li>
