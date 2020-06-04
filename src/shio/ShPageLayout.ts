@@ -25,9 +25,9 @@ export class ShPageLayout {
             var shRegion = $(this);
             var regionName = shRegion.attr("sh-region");
             var region = new ShRegion(shContext, regionName);
-            var html = await region.render(shContent, shObject);
+            html = await region.render(shContent, shObject);
             shRegion.html(html);
-            return html
+            return html;
         }).get());
 
         return $.html();
@@ -65,7 +65,6 @@ export class ShPageLayout {
         }
         else {
             let graphQL: any = null;
-            let siteName: string = await this.shContext.getSiteName();
             const objectQuery = `{
                 pageLayouts(sites:[${siteName}], where:{title:"${pageLayoutName}"}) {
                   html
@@ -88,8 +87,7 @@ export class ShPageLayout {
         }
         let result = this.renderProcess(shContent, shObject, js, html);
         return result;
-    };
-
+    }
 
     public renderProcess(shContent: any, shObject: any, js: string, html: string): string {
         return eval(js);

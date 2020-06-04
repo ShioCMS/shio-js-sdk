@@ -8,7 +8,7 @@ export class ShContext {
     private shServer: ShServer;
     private url: string;
     private context: string;
-    private siteName: string = null;;
+    private siteName: string = null;
     private format: string;
     private locale: string;
     private objectPath: string;

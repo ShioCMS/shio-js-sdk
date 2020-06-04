@@ -34,7 +34,6 @@ export class ShRegion {
         }
         else {
             let graphQL: any = null;
-            let siteName: string = await this.shContext.getSiteName();
             const objectQuery = `{
                 regions(sites:[${siteName}], where:{title:"${regionName}"}) {
                   html
@@ -54,7 +53,7 @@ export class ShRegion {
             debug(js);
         }
         return this.renderProcess(shContent, shObject, js, html);
-    };
+    }
 
     public renderProcess(shContent: any, shObject: any, js: string, html: string): string {
         return eval(js);
