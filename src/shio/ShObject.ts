@@ -255,7 +255,7 @@ export class ShObject {
 	}
 
 	public async generatePostLinkAsync(postId: string): Promise<string> {
-		return await this.generateObjectLink(postId);
+		return await this.generateObjectLinkAsync(postId);
 	}
 
 	/**
@@ -279,7 +279,7 @@ export class ShObject {
 	}
 
 	public async generateFolderLinkAsync(folderId: string): Promise<string> {
-		return await this.generateObjectLink(folderId);
+		return await this.generateObjectLinkAsync(folderId);
 	}
 
 	/**
