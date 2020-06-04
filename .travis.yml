@@ -1,4 +1,6 @@
 language: node
+node_js:
+  - 14
 os: linux
 dist: trusty
 addons:
