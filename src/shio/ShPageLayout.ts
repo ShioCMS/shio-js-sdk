@@ -85,7 +85,7 @@ export class ShPageLayout {
 
             js = jsModules.concat(graphQL.pageLayouts[0].javascript);
         }
-        let result = this.renderProcess(shContent, shObject, js, html);
+        let result: string = this.renderProcess(shContent, shObject, js, html);
         return result;
     }
 
