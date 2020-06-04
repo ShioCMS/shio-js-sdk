@@ -52,7 +52,8 @@ export class ShRegion {
             js = jsModules.concat(graphQL.regions[0].javascript);
             debug(js);
         }
-        return this.renderProcess(shContent, shObject, js, html);
+        let result: string = this.renderProcess(shContent, shObject, js, html);
+        return result;
     }
 
     public renderProcess(shContent: any, shObject: any, js: string, html: string): string {
