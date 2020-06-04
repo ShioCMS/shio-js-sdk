@@ -12,8 +12,8 @@
         "hasSiteName": false
     },
     "shioServer": {        
-        "endpoint": "http://localhost:2710/graphql",
-        "fileServer": "http://localhost:2710",
+        "endpoint": "https://shio.viglet.net/graphql",
+        "fileServer": "https://shio.viglet.net",
         "token": "450b355f-3c9c-4886-bbb8-be1ccea4aa2b"
     }
 }
