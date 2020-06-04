@@ -4,8 +4,7 @@ import { ShPageLayout, ShServer } from '../src'
 import { expect } from 'chai'
 import { ShConstTest } from './ShConstTest';
 import { ShContext } from '../src/shio/ShContext';
-
-const shServer = new ShServer(ShConstTest.endpoint);
+const shServer = new ShServer();
 
 describe('ShPageLayout', () => {
     

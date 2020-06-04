@@ -1,0 +1,14 @@
+language: node
+node_js:
+  - 12
+os: linux
+dist: trusty
+addons:
+  sonarcloud:
+    organization: "shiocms"
+    token: ${SONAR_TOKEN}
+script:
+  - npm test
+  -  sonar-scanner
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

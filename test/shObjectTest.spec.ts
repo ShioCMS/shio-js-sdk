@@ -2,9 +2,7 @@
 
 import { ShObject, ShServer } from '../src'
 import { expect } from 'chai'
-import { ShConstTest } from './ShConstTest';
-
-const shServer = new ShServer(ShConstTest.endpoint);
+const shServer = new ShServer();
 
 describe('ShObject generateObjectLinkAsync', () => {
     it('Should return Object URL', async () => {
